@@ -16,6 +16,15 @@ public class MoneyMarket extends Account{
         else return MONTHLY_FEE;
     }
 
+    /**
+     * Updates the number of withdrawals.
+     * @author Ayaan Qayyum
+     * @return
+     */
+    public int updateNumberOfWithdrawals() {
+        return withdrawal++;
+    }
+
     @Override
     public int compareTo(Account o) {
         return 0;
