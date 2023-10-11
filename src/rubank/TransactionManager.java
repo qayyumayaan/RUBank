@@ -13,6 +13,12 @@ public class TransactionManager {
     String command;
     String[] parts;
 
+    String accountType;
+    Profile profile;
+    Double quantity;
+
+    private AccountDatabase accounts = new AccountDatabase();
+
 
     public void run() {
         System.out.println("Transaction Manager running...");
@@ -55,6 +61,26 @@ public class TransactionManager {
             }
         }
     }
+
+    private void accountProcessor() {
+        try {
+            if (parts.length >= 5) {
+                accountType = parts[1];
+                String fname = parts[2];
+                String lname = parts[3];
+                String dobRaw = parts[4];
+                Date dob = new Date(dobRaw);
+                profile = new Profile(fname, lname, dob);
+                if (parts.length == 6) {
+                    quantity = Double.parseDouble(parts[6]);
+                }
+            }
+
+        } catch (Exception e) {
+            System.out.println("Error in account Processor: " + e);
+        }
+    }
+
 
     /**
      * Handles command O, Open.
