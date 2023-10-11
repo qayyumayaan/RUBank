@@ -48,4 +48,52 @@ public class TransactionManager {
             }
         }
     }
+
+    private boolean caseOpen() {
+        try {
+
+        } catch (Exception e) {
+
+        }
+
+        return true;
+    }
+
+    private boolean caseClose() {
+
+        return true;
+    }
+
+    private boolean caseDeposit() {
+
+        return true;
+    }
+
+    private boolean caseWithdraw() {
+
+        return true;
+    }
+
+    private boolean caseDisplay() {
+
+        return true;
+    }
+
+    private boolean caseDisplayWithDetails() {
+
+        return true;
+    }
+
+    private boolean caseUpdateBalance() {
+
+        return true;
+    }
+
+
+
+
+
+
+
+
 }
