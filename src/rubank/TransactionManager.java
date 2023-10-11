@@ -1,12 +1,19 @@
 package rubank;
 
 import java.util.Objects;
+import java.util.Scanner;
 
 public class TransactionManager {
     /**
      * Runs the program, handles input and commands O, C, D, W, P, PI, UB, Q
      * @author Ayaan Qayyum
      */
+
+    Scanner scanner = new Scanner(System.in);
+    String command;
+    String[] parts;
+
+
     public void run() {
         System.out.println("Transaction Manager running...");
         while (!Objects.equals(command, "Q")) {
@@ -69,6 +76,7 @@ public class TransactionManager {
      */
     private boolean caseClose() {
         try {
+            // test for invalid command format
 
         } catch (Exception e) {
             System.out.println("Error in caseClose: " + e.getMessage());
