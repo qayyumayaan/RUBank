@@ -1,4 +1,7 @@
 package rubank;
+
+import java.util.Calendar;
+
 /**
  * Authors: Ayaan and Mychal
  */
@@ -69,6 +72,19 @@ public class Date implements Comparable<Date>{
             return this.month - other.month;
         }
         return this.day - other.day;
+    }
+
+    public boolean isWithinSixMonths() {
+        int within = 6;
+        Calendar today = Calendar.getInstance();
+        Calendar sixMonthsLater = Calendar.getInstance();
+        sixMonthsLater.add(Calendar.MONTH, within);
+
+        Calendar eventDate = Calendar.getInstance();
+        eventDate.set(year, month - 1, day);
+
+        return eventDate.compareTo(today) >= 0 && eventDate.compareTo(sixMonthsLater) <= 0;
+
     }
 
 
