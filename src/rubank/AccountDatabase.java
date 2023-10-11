@@ -41,8 +41,18 @@ public class AccountDatabase {
         //add a new account
     }
 
+    /**
+     * Removes a given account.
+     *
+     * @author Ayaan Qayyum
+     */
     public boolean close(Account account) {
         //remove the given account
+        int location = find(account);
+        for (int i = location; i < numberOfAccounts - 1; i++) {
+            accounts[i] = accounts[i + 1];
+        }
+        return true;
     }
 
     public boolean withdraw(Account account) {
