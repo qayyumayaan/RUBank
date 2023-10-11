@@ -1,7 +1,7 @@
 package rubank;
 
 public class AccountDatabase {
-    private Account[] accounts; //list of various types of accounts
+    private Account[] accounts = new Account[4]; //list of various types of accounts
     private int numberOfAccounts; //number of accounts in the array
 
     /**
@@ -15,15 +15,18 @@ public class AccountDatabase {
                 return accountNumber;
             }
         }
-        return 0;
         return -1;
     }
 
+    /**
+     * Increases the account database capacity by 4.
+     * @return account number
+     * @author Mychal Ortega
+     */
     private void grow() {
-        //increase the capacity by 4
         Account[] newAccountDatabase = new Account[numberOfAccounts + 4];
         for (int accountNumber = 0; accountNumber < accounts.length; accountNumber++) {
-            newA[accountNumber] = accounts[accountNumber];
+            newAccountDatabase[accountNumber] = accounts[accountNumber];
         }
         accounts = newAccountDatabase;
     }
@@ -34,12 +37,17 @@ public class AccountDatabase {
      * @author Ayaan Qayyum
      */
     public boolean contains(Account account) {
-        //overload if necessary
         return (find(account) != -1);
     }
 
     public boolean open(Account account) {
-        //add a new account
+        if (contains(account)) return false;
+        if (accounts.length == numberOfAccounts) grow();
+
+        accounts[numberOfAccounts] = account;
+        numberOfAccounts++;
+
+        return true;
     }
 
     /**
@@ -48,7 +56,6 @@ public class AccountDatabase {
      * @author Ayaan Qayyum
      */
     public boolean close(Account account) {
-        //remove the given account
         int location = find(account);
         for (int i = location; i < numberOfAccounts - 1; i++) {
             accounts[i] = accounts[i + 1];
@@ -56,8 +63,12 @@ public class AccountDatabase {
         return true;
     }
 
+    /**
+     * Returns false if account balance if there is insufficient funds.
+     *
+     * @author Ayaan Qayyum
+     */
     public boolean withdraw(Account account) {
-        //false if insufficient fund
         return account.balance > 0;
     }
 
