@@ -1,4 +1,4 @@
 package rubank;
 
-public class Checking {
+public class Checking extends Savings {
 }
