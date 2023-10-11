@@ -5,17 +5,18 @@ public class AccountDatabase {
     private int numberOfAccounts; //number of accounts in the array
 
     /**
+     * Finds an account in the array.
      * @param account
      * @return account number
      */
     private int find(Account account) {
-        //search for an account in the array
         for (int accountNumber = 0; accountNumber < numberOfAccounts; accountNumber++) {
             if (accounts[accountNumber].equals(account)) {
                 return accountNumber;
             }
         }
         return 0;
+        return -1;
     }
 
     private void grow() {
