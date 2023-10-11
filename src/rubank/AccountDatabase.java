@@ -27,8 +27,14 @@ public class AccountDatabase {
         accounts = newAccountDatabase;
     }
 
+    /**
+     * Searches for an account if it exists in the database.
+     *
+     * @author Ayaan Qayyum
+     */
     public boolean contains(Account account) {
         //overload if necessary
+        return (find(account) != -1);
     }
 
     public boolean open(Account account) {
