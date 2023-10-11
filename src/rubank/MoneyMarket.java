@@ -7,13 +7,13 @@ public class MoneyMarket extends Account{
 
     @Override
     public double monthlyInterest() {
-        return moneyMarketAnnualInterest;
+        return ANNUAL_INTEREST;
     }
 
     @Override
     public double monthlyFee() {
         if (balance >= 2000) return 0;
-        else return moneyMarketMonthlyFee;
+        else return MONTHLY_FEE;
     }
 
     @Override
