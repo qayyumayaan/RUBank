@@ -1,6 +1,6 @@
 package rubank;
 
-public class CollegeChecking {
+public class CollegeChecking extends Checking {
     private Campus campus;
 
 }
