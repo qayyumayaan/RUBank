@@ -49,6 +49,10 @@ public class TransactionManager {
         }
     }
 
+    /**
+     * Handles command O, Open.
+     * @author Ayaan Qayyum
+     */
     private boolean caseOpen() {
         try {
 
@@ -59,6 +63,10 @@ public class TransactionManager {
         return true;
     }
 
+    /**
+     * Handles command C, Close.
+     * @author Ayaan Qayyum
+     */
     private boolean caseClose() {
         try {
 
@@ -68,6 +76,10 @@ public class TransactionManager {
         return true;
     }
 
+    /**
+     * Handles command D, Deposit.
+     * @author Ayaan Qayyum
+     */
     private boolean caseDeposit() {
         try {
 
@@ -77,6 +89,10 @@ public class TransactionManager {
         return true;
     }
 
+    /**
+     * Handles command W, Withdraw.
+     * @author Ayaan Qayyum
+     */
     private boolean caseWithdraw() {
         try {
 
@@ -86,6 +102,10 @@ public class TransactionManager {
         return true;
     }
 
+    /**
+     * Handles command P, Display.
+     * @author Ayaan Qayyum
+     */
     private boolean caseDisplay() {
         try {
 
@@ -95,6 +115,10 @@ public class TransactionManager {
         return true;
     }
 
+    /**
+     * Handles command PI, Display With Details.
+     * @author Ayaan Qayyum
+     */
     private boolean caseDisplayWithDetails() {
         try {
 
@@ -104,6 +128,10 @@ public class TransactionManager {
         return true;
     }
 
+    /**
+     * Handles command UB, Update Balance.
+     * @author Ayaan Qayyum
+     */
     private boolean caseUpdateBalance() {
         try {
 
