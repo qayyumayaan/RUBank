@@ -53,39 +53,63 @@ public class TransactionManager {
         try {
 
         } catch (Exception e) {
-
+            System.out.println("Error in caseOpen: " + e.getMessage());
         }
 
         return true;
     }
 
     private boolean caseClose() {
+        try {
 
+        } catch (Exception e) {
+            System.out.println("Error in caseClose: " + e.getMessage());
+        }
         return true;
     }
 
     private boolean caseDeposit() {
+        try {
 
+        } catch (Exception e) {
+            System.out.println("Error in caseDeposit: " + e.getMessage());
+        }
         return true;
     }
 
     private boolean caseWithdraw() {
+        try {
 
+        } catch (Exception e) {
+            System.out.println("Error in caseWithdraw: " + e.getMessage());
+        }
         return true;
     }
 
     private boolean caseDisplay() {
+        try {
 
+        } catch (Exception e) {
+            System.out.println("Error in caseDisplay: " + e.getMessage());
+        }
         return true;
     }
 
     private boolean caseDisplayWithDetails() {
+        try {
 
+        } catch (Exception e) {
+            System.out.println("Error in caseDisplayWithDetails: " + e.getMessage());
+        }
         return true;
     }
 
     private boolean caseUpdateBalance() {
+        try {
 
+        } catch (Exception e) {
+            System.out.println("Error in opening: " + e.getMessage());
+        }
         return true;
     }
 
