@@ -65,9 +65,12 @@ public class TransactionManager {
     private void accountProcessor() {
     /**
      * Takes inputs and puts it into account format.
+     * Command format:
+     * command, accountType, fname, lname, dob, quantity, campusCode.
      * @author Ayaan Qayyum
      */
     private void profileProcessor() {
+    private boolean profileProcessor() {
         try {
             if (parts.length >= 5) {
             if (parts.length >= 5 && parts.length <= 7) {
@@ -76,15 +79,32 @@ public class TransactionManager {
                 String lname = parts[3];
                 String dobRaw = parts[4];
                 Date dob = new Date(dobRaw);
-                profile = new Profile(fname, lname, dob);
-                if (parts.length == 6) {
-                    quantity = Double.parseDouble(parts[6]);
-                }
+            if (parts.length < 5) {
+                System.out.println("Command too short!");
+                return false;
+            }
+            if (parts.length > 7) {
+                System.out.println("Command too long!");
+                return false;
             }
 
+            if (!accountTypeChecker()) System.out.println("Account type does not match acceptable!");
+
+            if (!dateChecker(parts[4])) return false;
+            if (!quantityProcessor()) return false;
+            if (!campusProcessor()) return false;
+
+            accountType = parts[1];
+            String fname = parts[2];
+            String lname = parts[3];
+            Date dob = new Date(parts[4]);
+            profile = new Profile(fname, lname, dob);
         } catch (Exception e) {
             System.out.println("Error in account Processor: " + e);
         }
+        return true;
+    }
+
     /**
      * Checks if the account type is valid.
      * @return boolean if account type is valid. 
