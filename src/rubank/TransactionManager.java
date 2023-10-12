@@ -16,10 +16,15 @@ public class TransactionManager {
     String accountType;
     Profile profile;
     Double quantity;
+    Campus campusCode;
 
     private AccountDatabase accounts = new AccountDatabase();
 
 
+    /**
+     * Run method to handle inputs.
+     * @author Ayaan Qayyum
+     */
     public void run() {
         System.out.println("Transaction Manager running...");
         while (!Objects.equals(command, "Q")) {
