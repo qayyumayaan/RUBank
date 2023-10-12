@@ -5,9 +5,14 @@ public class MoneyMarket extends Account{
     public static final double ANNUAL_INTEREST = 4.75;
     public static final double MONTHLY_FEE = 25.0;
 
+    /**
+     * Returns the monthly interest.
+     * @author Ayaan Qayyum
+     * @return
+     */
     @Override
     public double monthlyInterest() {
-        return ANNUAL_INTEREST;
+        return ANNUAL_INTEREST / 12;
     }
 
     @Override
