@@ -70,10 +70,22 @@ public class AccountDatabase {
      */
     public boolean withdraw(Account account) {
         return account.balance > 0;
+//        return (quantity - account.getBalance() >= 0);
+        return account.getBalance() > 0;
     }
 
+    /**
+     * Deposits specified money into account.
+     *
+     * @author Ayaan Qayyum
+     */
     public void deposit(Account account) {
 
+        if(contains(account)) {
+            account.setBalance(account.getBalance() + amount);
+        } else {
+            System.out.println("Error in the deposit method!");
+        }
     }
 
     /**
