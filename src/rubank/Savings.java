@@ -2,16 +2,16 @@ package rubank;
 
 public class Savings extends Account {
     protected boolean isLoyal;
-    public static final double savingsInterest = 4.0;
+    public static final double savingsInterestAnnual = 4.0;
 
-    public static final double savingsInterestLoyal = .25;
+    public static final double savingsInterestLoyalAnnual = .25;
 
     private final double MONTHLY_FEE = 25;
 
 
     @Override
     public double monthlyInterest() {
-        if (isLoyal) return savingsInterest + savingsInterestLoyal;
+        if (isLoyal) return (savingsInterestAnnual + savingsInterestLoyalAnnual) * 1.0 / 12;
         else return savingsInterest;
     }
 
