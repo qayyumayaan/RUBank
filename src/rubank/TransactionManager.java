@@ -67,23 +67,14 @@ public class TransactionManager {
         }
     }
 
-    private void accountProcessor() {
     /**
      * Takes inputs and puts it into account format.
      * Command format:
      * command, accountType, fname, lname, dob, quantity, campusCode.
      * @author Ayaan Qayyum
      */
-    private void profileProcessor() {
     private boolean profileProcessor() {
         try {
-            if (parts.length >= 5) {
-            if (parts.length >= 5 && parts.length <= 7) {
-                accountType = parts[1];
-                String fname = parts[2];
-                String lname = parts[3];
-                String dobRaw = parts[4];
-                Date dob = new Date(dobRaw);
             if (parts.length < 5) {
                 System.out.println("Command too short!");
                 return false;
@@ -179,23 +170,18 @@ public class TransactionManager {
      */
     private boolean caseOpen() {
         try {
-
             if (!profileProcessor()) return false;
             switch (accountType) {
                 case ("C"):
-                    caseChecking();
                     caseOpenChecking();
                     break;
                 case ("CC"):
-                    caseCollegeChecking();
                     caseOpenCollegeChecking();
                     break;
                 case ("S"):
-                    caseSavings();
                     caseOpenSavings();
                     break;
                 case ("MM"):
-                    caseMoneyMarketSavings();
                     caseOpenMoneyMarketSavings();
                     break;
                 default:
@@ -204,26 +190,21 @@ public class TransactionManager {
         } catch(Exception e){
             System.out.println("Error in caseOpen: " + e.getMessage());
         }
-
         return true;
     }
 
-    private void caseChecking() {
     private void caseOpenChecking() {
 
     }
 
-    private void caseCollegeChecking() {
     private void caseOpenCollegeChecking() {
 
     }
 
-    private void caseSavings() {
     private void caseOpenSavings() {
 
     }
 
-    private void caseMoneyMarketSavings() {
     private void caseOpenMoneyMarketSavings() {
 
     }
@@ -236,7 +217,6 @@ public class TransactionManager {
      * Handles command C, Close.
      * @author Ayaan Qayyum
      */
-    private boolean caseClose() {
     private boolean caseClose () {
         try {
             // test for invalid command format
@@ -287,7 +267,6 @@ public class TransactionManager {
      * Handles command D, Deposit.
      * @author Ayaan Qayyum
      */
-    private boolean caseDeposit() {
     private boolean caseDeposit () {
         try {
             profileProcessor();
@@ -326,10 +305,8 @@ public class TransactionManager {
      * Handles command P, Display.
      * @author Ayaan Qayyum
      */
-    private boolean caseDisplay() {
     private boolean caseDisplay () {
         try {
-
             accounts.printSorted();
         } catch (Exception e) {
             System.out.println("Error in caseDisplay: " + e.getMessage());
@@ -341,10 +318,8 @@ public class TransactionManager {
      * Handles command PI, Display With Details.
      * @author Ayaan Qayyum
      */
-    private boolean caseDisplayWithDetails() {
     private boolean caseDisplayWithDetails () {
         try {
-
             accounts.printFeesAndInterests();
         } catch (Exception e) {
             System.out.println("Error in caseDisplayWithDetails: " + e.getMessage());
@@ -356,10 +331,8 @@ public class TransactionManager {
      * Handles command UB, Update Balance.
      * @author Ayaan Qayyum
      */
-    private boolean caseUpdateBalance() {
     private boolean caseUpdateBalance () {
         try {
-
             accounts.printUpdatedBalances();
         } catch (Exception e) {
             System.out.println("Error in opening: " + e.getMessage());
@@ -375,3 +348,4 @@ public class TransactionManager {
 
 
 }
+
