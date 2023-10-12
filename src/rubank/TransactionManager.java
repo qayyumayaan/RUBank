@@ -97,6 +97,24 @@ public class TransactionManager {
         }
         return false;
     }
+
+    /**
+     * Checks if the quantity specified is valid and processes it.
+     * @return
+     * @author Ayaan Qayyum
+     */
+    private boolean quantityProcessor() {
+        if (parts.length >= 5) {
+            try {
+                quantity = Double.parseDouble(parts[6]);
+//                System.out.println(quantity);
+            } catch (Exception e) {
+                System.out.println("Quantity is invalid!");
+                return false;
+            }
+        }
+        return true;
+    }
     }
 
 
