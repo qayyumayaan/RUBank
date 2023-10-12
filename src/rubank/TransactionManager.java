@@ -340,8 +340,10 @@ public class TransactionManager {
      * @author Ayaan Qayyum
      */
     private boolean caseDisplayWithDetails() {
+    private boolean caseDisplayWithDetails () {
         try {
 
+            accounts.printFeesAndInterests();
         } catch (Exception e) {
             System.out.println("Error in caseDisplayWithDetails: " + e.getMessage());
         }
