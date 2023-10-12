@@ -115,6 +115,25 @@ public class TransactionManager {
         }
         return true;
     }
+
+    /**
+     * Checks if the campus code is valid and processes it.
+     * @return
+     * @author Ayaan Qayyum
+     */
+    private boolean campusProcessor() {
+        if (parts.length == 6) {
+            int campus = 0;
+            try {
+                campus = Integer.parseInt(parts[6]);
+            } catch (Exception e) {
+                System.out.println("Campus code is invalid!");
+                return false;
+            }
+            campusCode = Campus.fromCode(campus);
+        }
+        return true;
+    }
     }
 
 
