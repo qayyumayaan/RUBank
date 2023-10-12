@@ -63,8 +63,14 @@ public class TransactionManager {
     }
 
     private void accountProcessor() {
+    /**
+     * Takes inputs and puts it into account format.
+     * @author Ayaan Qayyum
+     */
+    private void profileProcessor() {
         try {
             if (parts.length >= 5) {
+            if (parts.length >= 5 && parts.length <= 7) {
                 accountType = parts[1];
                 String fname = parts[2];
                 String lname = parts[3];
@@ -90,11 +96,47 @@ public class TransactionManager {
         try {
 
         } catch (Exception e) {
+            profileProcessor();
+            switch (accountType) {
+                case ("C"):
+                    caseChecking();
+                    break;
+                case ("CC"):
+                    caseCollegeChecking();
+                    break;
+                case ("S"):
+                    caseSavings();
+                    break;
+                case ("MM"):
+                    caseMoneyMarketSavings();
+                    break;
+                default:
+                    System.out.println(command + " is an invalid command!");
+            }
+        } catch(Exception e){
             System.out.println("Error in caseOpen: " + e.getMessage());
         }
 
         return true;
     }
+
+    private void caseChecking() {
+
+    }
+
+    private void caseCollegeChecking() {
+    }
+
+    private void caseSavings() {
+
+    }
+
+    private void caseMoneyMarketSavings() {
+    }
+
+
+
+
 
     /**
      * Handles command C, Close.
