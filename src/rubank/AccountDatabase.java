@@ -79,10 +79,23 @@ public class AccountDatabase {
     /**
      * Prints sorted by account type and profile.
      *
+     * Uses bubble sort.
      * @author Ayaan Qayyum
      */
     public void printSorted() {
+        for (int i = 0; i < numberOfAccounts - 1; i++) {
+            for (int j = 0; j < numberOfAccounts - i - 1; j++) {
+                if (accounts[j].compareTo(accounts[j + 1]) > 0) {
+                    Account temp = accounts[j];
+                    accounts[j] = accounts[j + 1];
+                    accounts[j + 1] = temp;
+                }
+            }
+        }
 
+        for (int i = 0; i < numberOfAccounts; i++) {
+            System.out.println(accounts[i].toString());
+        }
     }
 
     /**
