@@ -1,6 +1,7 @@
 package rubank;
 
 public class AccountDatabase {
+<<<<<<< Updated upstream
     private Account[] accounts = new Account[4]; //list of various types of accounts
     private int numberOfAccounts; //number of accounts in the array
 
@@ -13,10 +14,25 @@ public class AccountDatabase {
         for (int accountNumber = 0; accountNumber < numberOfAccounts; accountNumber++) {
             if (accounts[accountNumber].equals(account)) {
                 return accountNumber;
+=======
+    private Account [] accounts; //list of various types of accounts
+    private int numAcct; //number of accounts in the array
+
+    /**
+     * search for an account in the array
+     * @author Mychal Ortega
+     */
+    private int find(Account account) {
+
+        for (int i = 0; i < numAcct; i++){
+            if(accounts[i].equals(account)){
+                return i;
+>>>>>>> Stashed changes
             }
         }
         return -1;
     }
+<<<<<<< Updated upstream
 
     /**
      * Increases the account database capacity by 4.
@@ -27,6 +43,19 @@ public class AccountDatabase {
         Account[] newAccountDatabase = new Account[numberOfAccounts + 4];
         for (int accountNumber = 0; accountNumber < accounts.length; accountNumber++) {
             newAccountDatabase[accountNumber] = accounts[accountNumber];
+=======
+    /**
+     * increase the capacity by 4
+     * @author Mychal Ortega
+     */
+    private void grow(){
+
+        Account[] newA = new Account[numAcct+4];
+        for(int i = 0; i< accounts.length; i++){
+            newA[i] = accounts[i];
+        }
+        accounts = newA;
+>>>>>>> Stashed changes
         }
         accounts = newAccountDatabase;
     }
@@ -62,6 +91,7 @@ public class AccountDatabase {
         }
         return true;
     }
+<<<<<<< Updated upstream
 
     /**
      * Returns false if account balance if there is insufficient funds.
@@ -69,6 +99,14 @@ public class AccountDatabase {
      * @author Ayaan Qayyum
      */
     public boolean withdraw(Account account) {
+=======
+    /**
+     * Checks if account has insufficient funds
+     * @author Mychal Ortega
+     */
+    public boolean withdraw(Account account) {
+
+>>>>>>> Stashed changes
         return account.balance > 0;
 //        return (quantity - account.getBalance() >= 0);
         return account.getBalance() > 0;
