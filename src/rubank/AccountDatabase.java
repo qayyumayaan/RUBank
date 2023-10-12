@@ -91,7 +91,13 @@ public class AccountDatabase {
      * @author Ayaan Qayyum
      */
     public void printFeesAndInterests() {
+        for (int i = 0; i < numberOfAccounts; i++) {
+            double interest = accounts[i].monthlyInterest();
+            double fee = accounts[i].monthlyFee();
 
+            System.out.printf("%s: Interest: %.2f, Fee: %.2f%n",
+                    accounts[i].holder, interest, fee);
+        }
     }
 
     /**
