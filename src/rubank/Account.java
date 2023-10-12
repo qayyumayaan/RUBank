@@ -9,7 +9,7 @@ public abstract class Account implements Comparable<Account> {
     /**
      *
      * @param other the object to be compared.
-     * @return
+     * @return typeComparison
      * @author Ayaan Qayyum
      */
     @Override
@@ -27,7 +27,6 @@ public abstract class Account implements Comparable<Account> {
 
     /**
      * Gets account balance.
-     * @param balance
      * @author Ayaan Qayyum
      */
     public double getBalance() {
@@ -36,7 +35,6 @@ public abstract class Account implements Comparable<Account> {
 
     /**
      * Gets account holder.
-     * @param balance
      * @author Ayaan Qayyum
      */
     public Profile getHolder() {
