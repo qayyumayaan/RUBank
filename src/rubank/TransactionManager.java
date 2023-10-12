@@ -288,8 +288,14 @@ public class TransactionManager {
      * @author Ayaan Qayyum
      */
     private boolean caseDeposit() {
+    private boolean caseDeposit () {
         try {
+            profileProcessor();
 
+            Account accountToDeposit = new Checking();
+
+            accountToDeposit.setBalance(quantity);
+            accounts.deposit(accountToDeposit);
         } catch (Exception e) {
             System.out.println("Error in caseDeposit: " + e.getMessage());
         }
