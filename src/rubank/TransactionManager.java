@@ -212,14 +212,51 @@ public class TransactionManager {
      * @author Ayaan Qayyum
      */
     private boolean caseClose() {
+    private boolean caseClose () {
         try {
             // test for invalid command format
+            profileProcessor();
+            switch (accountType) {
+                case ("C"):
+                    caseCloseChecking();
+                    break;
+                case ("CC"):
+                    caseCloseCollegeChecking();
+                    break;
+                case ("S"):
+                    caseCloseSavings();
+                    break;
+                case ("MM"):
+                    caseCloseMoneyMarketSavings();
+                    break;
+                default:
+                    System.out.println(command + " is an invalid command!");
+            }
 
+//            accounts.close(account);
         } catch (Exception e) {
             System.out.println("Error in caseClose: " + e.getMessage());
         }
         return true;
     }
+
+    private void caseCloseChecking() {
+
+    }
+
+    private void caseCloseCollegeChecking() {
+
+    }
+
+    private void caseCloseSavings() {
+
+    }
+
+    private void caseCloseMoneyMarketSavings() {
+
+    }
+
+
 
     /**
      * Handles command D, Deposit.
