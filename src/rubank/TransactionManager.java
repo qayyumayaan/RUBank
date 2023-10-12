@@ -327,8 +327,10 @@ public class TransactionManager {
      * @author Ayaan Qayyum
      */
     private boolean caseDisplay() {
+    private boolean caseDisplay () {
         try {
 
+            accounts.printSorted();
         } catch (Exception e) {
             System.out.println("Error in caseDisplay: " + e.getMessage());
         }
