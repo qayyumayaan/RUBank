@@ -85,6 +85,18 @@ public class TransactionManager {
         } catch (Exception e) {
             System.out.println("Error in account Processor: " + e);
         }
+    /**
+     * Checks if the account type is valid.
+     * @return boolean if account type is valid. 
+     * @author Ayaan Qayyum
+     */
+    private boolean accountTypeChecker() {
+        String[] accountTypes = {"C", "CC", "S", "MM"};
+        for (String accountName : accountTypes) {
+            if (accountName.equals(parts[1])) return true;
+        }
+        return false;
+    }
     }
 
 
