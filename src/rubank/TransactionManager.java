@@ -308,7 +308,14 @@ public class TransactionManager {
      */
     private boolean caseWithdraw() {
         try {
+            profileProcessor();
+//            Account accountToWithdraw = new Account(profile, quantity);
+//            boolean success = accounts.withdraw(accountToWithdraw, quantity);
+//            if(!success) {
+//                System.out.println("Insufficient funds or account not found.");
+//            }
 
+//            accounts.withdraw(account);
         } catch (Exception e) {
             System.out.println("Error in caseWithdraw: " + e.getMessage());
         }
