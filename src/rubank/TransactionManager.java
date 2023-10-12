@@ -155,20 +155,23 @@ public class TransactionManager {
     private boolean caseOpen() {
         try {
 
-        } catch (Exception e) {
-            profileProcessor();
+            if (!profileProcessor()) return false;
             switch (accountType) {
                 case ("C"):
                     caseChecking();
+                    caseOpenChecking();
                     break;
                 case ("CC"):
                     caseCollegeChecking();
+                    caseOpenCollegeChecking();
                     break;
                 case ("S"):
                     caseSavings();
+                    caseOpenSavings();
                     break;
                 case ("MM"):
                     caseMoneyMarketSavings();
+                    caseOpenMoneyMarketSavings();
                     break;
                 default:
                     System.out.println(command + " is an invalid command!");
@@ -181,17 +184,23 @@ public class TransactionManager {
     }
 
     private void caseChecking() {
+    private void caseOpenChecking() {
 
     }
 
     private void caseCollegeChecking() {
+    private void caseOpenCollegeChecking() {
+
     }
 
     private void caseSavings() {
+    private void caseOpenSavings() {
 
     }
 
     private void caseMoneyMarketSavings() {
+    private void caseOpenMoneyMarketSavings() {
+
     }
 
 
