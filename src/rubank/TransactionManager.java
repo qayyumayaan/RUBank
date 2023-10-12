@@ -353,8 +353,10 @@ public class TransactionManager {
      * @author Ayaan Qayyum
      */
     private boolean caseUpdateBalance() {
+    private boolean caseUpdateBalance () {
         try {
 
+            accounts.printUpdatedBalances();
         } catch (Exception e) {
             System.out.println("Error in opening: " + e.getMessage());
         }
