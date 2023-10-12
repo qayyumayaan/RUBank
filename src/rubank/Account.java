@@ -6,6 +6,12 @@ public abstract class Account implements Comparable<Account> {
     public abstract double monthlyInterest();
     public abstract double monthlyFee();
 
+    /**
+     *
+     * @param other the object to be compared.
+     * @return
+     * @author Ayaan Qayyum
+     */
     @Override
     public int compareTo(Account other) {
         int typeComparison = this.getClass().getName().compareTo(other.getClass().getName());
@@ -28,12 +34,17 @@ public abstract class Account implements Comparable<Account> {
         return balance;
     }
 
+    /**
+     * Gets account holder.
+     * @param balance
+     * @author Ayaan Qayyum
+     */
     public Profile getHolder() {
         return holder;
     }
 
     /**
-     * Updates account balance.
+     * Sets account balance.
      * @param balance
      * @author Ayaan Qayyum
      */
