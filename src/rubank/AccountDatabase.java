@@ -8,6 +8,7 @@ public class AccountDatabase {
      * Finds an account in the array.
      * @param account
      * @return account number
+     * @author Ayaan Qayyum
      */
     private int find(Account account) {
         for (int accountNumber = 0; accountNumber < numberOfAccounts; accountNumber++) {
@@ -17,6 +18,7 @@ public class AccountDatabase {
         }
         return -1;
     }
+
 
     /**
      * Increases the account database capacity by 4.
@@ -69,28 +71,27 @@ public class AccountDatabase {
      * @author Ayaan Qayyum
      */
     public boolean withdraw(Account account) {
-        return account.balance > 0;
 //        return (quantity - account.getBalance() >= 0);
         return account.getBalance() > 0;
     }
 
     /**
      * Deposits specified money into account.
-     *
+     * Checks if account exists first.
      * @author Ayaan Qayyum
      */
     public void deposit(Account account) {
+        int index = find(account);
 
-        if(contains(account)) {
-            account.setBalance(account.getBalance() + amount);
+        if(index != 1) {
+            accounts[index].setBalance(accounts[index].getBalance() + account.getBalance());
         } else {
-            System.out.println("Error in the deposit method!");
+            System.out.println("Account not found.");
         }
     }
 
     /**
      * Prints sorted by account type and profile.
-     *
      * Uses bubble sort.
      * @author Ayaan Qayyum
      */
@@ -111,8 +112,7 @@ public class AccountDatabase {
     }
 
     /**
-     * Prints account interest and fees.
-     *
+     * Prints an account's interest and fees.
      * @author Ayaan Qayyum
      */
     public void printFeesAndInterests() {
@@ -127,7 +127,6 @@ public class AccountDatabase {
 
     /**
      * Prints account updated balance after applying interest and fees.
-     *
      * @author Ayaan Qayyum
      */
     public void printUpdatedBalances() {
