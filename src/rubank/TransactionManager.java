@@ -103,7 +103,7 @@ public class TransactionManager {
 
     /**
      * Checks if the account type is valid.
-     * @return boolean if account type is valid. 
+     * @return boolean if account type is valid.
      * @author Ayaan Qayyum
      */
     private boolean accountTypeChecker() {

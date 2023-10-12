@@ -35,7 +35,6 @@ public class AccountDatabase {
 
     /**
      * Searches for an account if it exists in the database.
-     *
      * @author Ayaan Qayyum
      */
     public boolean contains(Account account) {
