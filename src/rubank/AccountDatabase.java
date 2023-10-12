@@ -100,6 +100,15 @@ public class AccountDatabase {
      * @author Ayaan Qayyum
      */
     public void printUpdatedBalances() {
+        for (int i = 0; i < numberOfAccounts; i++) {
+            double interest = accounts[i].monthlyInterest();
+            double fee = accounts[i].monthlyFee();
+            double updatedBalance = accounts[i].balance + interest - fee;
 
+            accounts[i].balance = updatedBalance;
+
+            System.out.printf("%s: Updated Balance: %.2f%n",
+                    accounts[i].holder, updatedBalance);
+        }
     }
 }
