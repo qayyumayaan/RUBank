@@ -134,6 +134,17 @@ public class TransactionManager {
         }
         return true;
     }
+
+    private boolean dateChecker(String dobRaw) {
+        // this is JUST to make sure it is not completely broken.
+        // specific checks come later.
+        int count = 0;
+        for (char c : dobRaw.toCharArray()) {
+            if (c == '/') {
+                count++;
+            }
+        }
+        return count == 2;
     }
 
 
