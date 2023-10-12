@@ -11,7 +11,7 @@ public class Checking extends Account {
      */
     @Override
     public double monthlyInterest() {
-        return ANNUAL_INTEREST;
+        return ANNUAL_INTEREST / 12;
     }
 
     /**
