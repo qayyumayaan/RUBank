@@ -66,13 +66,29 @@ public class AccountDatabase {
     }
 
     /**
-     * Returns false if account balance if there is insufficient funds.
-     *
+     * Withdraws a specified amount from an account.
+     * @param account - the account from which to withdraw.
+     * @return true if the withdrawal was successful, false otherwise
      * @author Ayaan Qayyum
      */
     public boolean withdraw(Account account) {
-//        return (quantity - account.getBalance() >= 0);
-        return account.getBalance() > 0;
+        int index = find(account);
+        if(index == -1) {
+            System.out.println("Account not found.");
+            return false;
+        }
+
+        double currentBalance = accounts[index].getBalance();
+        double amountToWithdraw = account.getBalance();
+        // Assuming the withdrawal amount is set in the passed Account object
+
+        if(amountToWithdraw > currentBalance) {
+            System.out.println("Insufficient funds.");
+            return false;
+        }
+
+        accounts[index].setBalance(currentBalance - amountToWithdraw);
+        return true;
     }
 
     /**
