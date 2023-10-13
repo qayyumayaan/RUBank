@@ -61,6 +61,7 @@ public class AccountDatabase {
         for (int i = location; i < numberOfAccounts - 1; i++) {
             accounts[i] = accounts[i + 1];
         }
+        accounts[accounts.length - 1] = null;
         return true;
     }
 
@@ -82,7 +83,7 @@ public class AccountDatabase {
     public void deposit(Account account) {
         int index = find(account);
 
-        if(index != 1) {
+        if(index != -1) {
             accounts[index].setBalance(accounts[index].getBalance() + account.getBalance());
         } else {
             System.out.println("Account not found.");
