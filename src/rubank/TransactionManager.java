@@ -262,8 +262,14 @@ public class TransactionManager {
         accounts.open(newAccount);
     }
 
+    /**
+     * Handles opening the Money Market Savings account.
+     * @author Ayaan Qayyum
+     */
     private void caseOpenMoneyMarketSavings() {
 
+        MoneyMarket newAccount = new MoneyMarket(profile, quantity);
+        accounts.open(newAccount);
     }
 
 
