@@ -47,6 +47,8 @@ public class MoneyMarket extends Account{
     }
 
     @Override
+    public int compareTo(Account other) {
+        return super.compareTo(other);
     }
 
 }
