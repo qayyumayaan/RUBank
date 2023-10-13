@@ -8,6 +8,11 @@ public class Savings extends Account {
 
     private final double MONTHLY_FEE = 25;
 
+    public Savings(Profile profile, Double quantity, boolean isLoyal) {
+        this.holder = profile;
+        this.balance = quantity;
+        this.isLoyal = isLoyal;
+    }
 
     @Override
     public double monthlyInterest() {
