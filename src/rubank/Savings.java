@@ -2,24 +2,41 @@ package rubank;
 
 public class Savings extends Account {
     protected boolean isLoyal;
-    public static final double savingsInterestAnnual = 4.0;
+    public static final double ANNUAL_INTEREST = 4.0;
 
-    public static final double savingsInterestLoyalAnnual = .25;
+    public static final double ANNUAL_INTEREST_LOYAL_ADDITION = .25;
 
-    private final double MONTHLY_FEE = 25;
+    private final double MONTHLY_FEE = 25.0;
 
+    /**
+     * Initializes Savings.
+     * @author Ayaan Qayyum
+     */
     public Savings(Profile profile, Double quantity, boolean isLoyal) {
         this.holder = profile;
         this.balance = quantity;
         this.isLoyal = isLoyal;
     }
 
+
+    /**
+     * Returns the monthly interest.
+     * @author Ayaan Qayyum
+     * @return monthly interest
+     */
     @Override
     public double monthlyInterest() {
-        if (isLoyal) return (savingsInterestAnnual + savingsInterestLoyalAnnual) * 1.0 / 12;
-        else return savingsInterest;
+        double interestRate = ANNUAL_INTEREST;
+        if (isLoyal) interestRate += ANNUAL_INTEREST_LOYAL_ADDITION;
+        return interestRate / 12;
     }
 
+
+    /**
+     * Returns the monthly fee based on balance.
+     * @author Ayaan Qayyum
+     * @return monthly fee
+     */
     @Override
     public double monthlyFee() {
         if (balance >= 500) return 0;
