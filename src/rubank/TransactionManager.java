@@ -18,6 +18,7 @@ public class TransactionManager {
     Double quantity;
     Campus campusCode;
     Boolean loyalty;
+    String[] accountTypes = {"C", "CC", "S", "MM"};
 
     private AccountDatabase accounts = new AccountDatabase();
 
@@ -87,19 +88,30 @@ public class TransactionManager {
 
             if (!accountTypeChecker()) System.out.println("Account type does not match acceptable!");
 
-            if (!dateChecker(parts[4])) return false;
-            if (!quantityProcessor()) return false;
 
             // college checking parts[6] is campus code
             // savings parts[6] is loyalty
             // monkey market is loyal by default
-            if (!campusProcessor()) return false;
 
             accountType = parts[1];
             String fname = parts[2];
             String lname = parts[3];
+            if (!dateChecker(parts[4])) return false;
             Date dob = new Date(parts[4]);
             profile = new Profile(fname, lname, dob);
+
+            if (command.equals("C")) return true; // break and do not check parts[5], parts[6]
+
+            if (!quantityProcessor()) return false; // parts[5]
+
+            if (accountType.equals("CC")) { // parts[6]
+                if (!campusProcessor()) return false;
+            } else if (accountType.equals("S")) {
+                if (!loyaltyProcessor()) return false;
+            } else if (accountType.equals("MM")) {
+                loyalty = true;
+            }
+
         } catch (Exception e) {
             System.out.println("Error in account Processor: " + e);
         }
@@ -250,6 +262,7 @@ public class TransactionManager {
      */
     private boolean caseClose () {
         try {
+            profileProcessor();
             // test for invalid command format
             switch (accountType) {
                 case ("C"):
