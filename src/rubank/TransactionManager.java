@@ -75,6 +75,12 @@ public class TransactionManager {
      * command, accountType, fname, lname, dob, quantity, campusCode.
      * @author Ayaan Qayyum
      */
+
+
+    // college checking parts[6] is campus code
+    // savings parts[6] is isLoyal
+    // monkey market is loyal by default
+
     private boolean profileProcessor() {
         try {
             if (parts.length < 5) {
@@ -85,33 +91,30 @@ public class TransactionManager {
                 System.out.println("Command too long!");
                 return false;
             }
-
             if (!accountTypeChecker()) System.out.println("Account type does not match acceptable!");
-
-
-            // college checking parts[6] is campus code
-            // savings parts[6] is isLoyal
-            // monkey market is loyal by default
 
             accountType = parts[1];
             String fname = parts[2];
             String lname = parts[3];
             if (!dateChecker(parts[4])) return false;
             Date dob = new Date(parts[4]);
+            if (!dob.isOlderThanSixteen() || dob.isTodayOrFuture() || !dob.isValid()) return false;
             profile = new Profile(fname, lname, dob);
 
             if (command.equals("C")) return true; // break and do not check parts[5], parts[6]
-
             if (!quantityProcessor()) return false; // parts[5]
 
             if (accountType.equals("CC")) { // parts[6]
+                if(!dob.isYoungerThanTwentyFour()) {
+                    System.out.println("DOB is older than 24 to open CC!");
+                    return false;
+                }
                 if (!campusProcessor()) return false;
             } else if (accountType.equals("S")) {
                 if (!loyaltyProcessor()) return false;
             } else if (accountType.equals("MM")) {
                 isLoyal = true;
             }
-
         } catch (Exception e) {
             System.out.println("Error in account Processor: " + e);
         }
