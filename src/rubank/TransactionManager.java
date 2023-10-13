@@ -281,7 +281,7 @@ public class TransactionManager {
      * Handles command C, Close.
      * @author Ayaan Qayyum
      */
-    private boolean caseClose () {
+    private boolean caseClose() {
         try {
             profileProcessor();
             switch (accountType) {
@@ -300,6 +300,7 @@ public class TransactionManager {
                 default:
                     System.out.println(command + " is an invalid command!");
             }
+            System.out.println("Closed account successfully!");
         } catch (Exception e) {
             System.out.println("Error in caseClose: " + e.getMessage());
         }
