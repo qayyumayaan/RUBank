@@ -268,7 +268,8 @@ public class TransactionManager {
     }
 
     private void caseCloseCollegeChecking() {
-
+        CollegeChecking accountToClose = new CollegeChecking(profile, quantity);
+        accounts.close(accountToClose);
     }
 
     private void caseCloseSavings() {
