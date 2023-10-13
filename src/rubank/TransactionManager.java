@@ -265,8 +265,12 @@ public class TransactionManager {
      * @author Ayaan Qayyum
      */
     private void caseOpenMoneyMarketSavings() {
-        MoneyMarket newAccount = new MoneyMarket(profile, quantity);
-        accounts.open(newAccount);
+        if (quantity < 2000) {
+            System.out.println("Minimum deposit not reached!");
+        } else {
+            MoneyMarket newAccount = new MoneyMarket(profile, quantity);
+            accounts.open(newAccount);
+        }
     }
 
 
