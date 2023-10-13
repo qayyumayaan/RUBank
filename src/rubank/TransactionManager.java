@@ -151,6 +151,23 @@ public class TransactionManager {
         return true;
     }
 
+    /**
+     * Checks if the campus code is valid and processes it.
+     * @return
+     * @author Ayaan Qayyum
+     */
+    private boolean loyaltyProcessor() {
+        if (parts.length == 6) {
+            try {
+                loyalty = Boolean.parseBoolean(parts[6]);
+            } catch (Exception e) {
+                System.out.println("Loyalty code is invalid!");
+                return false;
+            }
+        }
+        return true;
+    }
+
     private boolean dateChecker(String dobRaw) {
         // this is JUST to make sure it is not completely broken.
         // specific checks come later.
