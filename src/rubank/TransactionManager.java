@@ -286,21 +286,37 @@ public class TransactionManager {
         return true;
     }
 
+    /**
+     * Handles closing the Checking account.
+     * @author Ayaan Qayyum
+     */
     private void caseCloseChecking() {
         Checking accountToClose = new Checking(profile, quantity);
         accounts.close(accountToClose);
     }
 
+    /**
+     * Handles closing the College Checking account.
+     * @author Ayaan Qayyum
+     */
     private void caseCloseCollegeChecking() {
         CollegeChecking accountToClose = new CollegeChecking(profile, quantity);
         accounts.close(accountToClose);
     }
 
+    /**
+     * Handles closing the Savings account.
+     * @author Ayaan Qayyum
+     */
     private void caseCloseSavings() {
         Savings accountToClose = new Savings(profile, quantity, false);
         accounts.close(accountToClose);
     }
 
+    /**
+     * Handles closing the Money Market Savings account.
+     * @author Ayaan Qayyum
+     */
     private void caseCloseMoneyMarketSavings() {
         Savings accountToClose = new Savings(profile, quantity, false);
         accounts.close(accountToClose);
@@ -308,6 +324,7 @@ public class TransactionManager {
 
 
 
+    
     /**
      * Handles command D, Deposit.
      * @author Ayaan Qayyum
