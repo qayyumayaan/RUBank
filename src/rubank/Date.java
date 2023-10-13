@@ -17,6 +17,7 @@ public class Date implements Comparable<Date>{
     public static final int FEB_LEAP_YEAR_DAYS = 29;
 
     public static final int AGE_SIXTEEN = 16;
+    public static final int AGE_TWENTY_FOUR = 24;
     public static final int[] DAYS_IN_MONTH = {
             0, // placeholder
             31, // January
@@ -97,6 +98,13 @@ public class Date implements Comparable<Date>{
         return eventDate.compareTo(today) < 0;
     }
 
+    public boolean isYoungerThanTwentyFour() {
+        Calendar today = Calendar.getInstance();
+        today.add(Calendar.YEAR, -AGE_TWENTY_FOUR);
+        Calendar eventDate = Calendar.getInstance();
+        eventDate.set(year, month - 1, day);
+        return eventDate.compareTo(today) > 0;
+    }
     public static void main(String[] args) {
         testDaysInFeb_NonLeap();
         testDaysInFeb_Leap();
