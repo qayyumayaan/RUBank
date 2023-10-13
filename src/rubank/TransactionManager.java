@@ -104,8 +104,8 @@ public class TransactionManager {
             profile = new Profile(fname, lname, dob);
 
             if (command.equals("C")) return true; // break and do not check parts[5], parts[6]
-            if (!quantityProcessor()) return false; // parts[5]
 
+            if (!quantityProcessor()) return false; // parts[5]
             if (accountType.equals("CC")) { // parts[6]
                 if(!dob.isYoungerThanTwentyFour()) {
                     System.out.println("DOB is older than 24 to open CC!");
@@ -385,17 +385,38 @@ public class TransactionManager {
     private boolean caseWithdraw() {
         try {
             if (!profileProcessor()) return false;
-//            Account accountToWithdraw = new Account(profile, quantity);
-//            boolean success = accounts.withdraw(accountToWithdraw, quantity);
-//            if(!success) {
-//                System.out.println("Insufficient funds or account not found.");
-//            }
 
-//            accounts.withdraw(account);
+            switch (accountType) {
+                case ("C"):
+                    Checking accountToWithdrawC = new Checking(profile, quantity);
+                    processWithdraw(accountToWithdrawC);
+                    break;
+                case ("CC"):
+                    CollegeChecking accountToWithdrawCC = new CollegeChecking(profile, quantity);
+                    processWithdraw(accountToWithdrawCC);
+                    break;
+                case ("S"):
+                    Savings accountToWithdrawS = new Savings(profile, quantity, isLoyal);
+                    processWithdraw(accountToWithdrawS);
+                    break;
+                case ("MM"):
+                    MoneyMarket accountToWithdrawMM = new MoneyMarket(profile, quantity);
+                    processWithdraw(accountToWithdrawMM);
+                    break;
+                default:
+                    System.out.println(command + " is an invalid command!");
+            }
         } catch (Exception e) {
             System.out.println("Error in caseWithdraw: " + e.getMessage());
         }
         return true;
+    }
+
+    private void processWithdraw(Account account) {
+        boolean success = accounts.withdraw(account);
+        if (!success) {
+            System.out.println("Insufficient funds or account not found.");
+        }
     }
 
     /**
