@@ -350,10 +350,26 @@ public class TransactionManager {
         try {
             if (!profileProcessor()) return false;
 
-//            Account accountToDeposit = new Checking();
-
-//            accountToDeposit.setBalance(quantity);
-//            accounts.deposit(accountToDeposit);
+            switch (accountType) {
+                case ("C"):
+                    Checking accountToDepositC = new Checking(profile, quantity);
+                    accounts.deposit(accountToDepositC);
+                    break;
+                case ("CC"):
+                    CollegeChecking accountToDepositCC = new CollegeChecking(profile, quantity);
+                    accounts.deposit(accountToDepositCC);
+                    break;
+                case ("S"):
+                    Savings accountToDepositS = new Savings(profile, quantity, isLoyal);
+                    accounts.deposit(accountToDepositS);
+                    break;
+                case ("MM"):
+                    MoneyMarket accountToDepositMM = new MoneyMarket(profile, quantity);
+                    accounts.deposit(accountToDepositMM);
+                    break;
+                default:
+                    System.out.println(command + " is an invalid command!");
+            }
         } catch (Exception e) {
             System.out.println("Error in caseDeposit: " + e.getMessage());
         }
