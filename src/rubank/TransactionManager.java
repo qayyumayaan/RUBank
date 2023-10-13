@@ -271,9 +271,12 @@ public class TransactionManager {
             if (!profileProcessor()) return false;
 
             Account accountToDeposit = new Checking();
+//            Account accountToDeposit = new Checking();
 
             accountToDeposit.setBalance(quantity);
             accounts.deposit(accountToDeposit);
+//            accountToDeposit.setBalance(quantity);
+//            accounts.deposit(accountToDeposit);
         } catch (Exception e) {
             System.out.println("Error in caseDeposit: " + e.getMessage());
         }
