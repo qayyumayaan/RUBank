@@ -278,7 +278,8 @@ public class TransactionManager {
     }
 
     private void caseCloseMoneyMarketSavings() {
-
+        Savings accountToClose = new Savings(profile, quantity, false);
+        accounts.close(accountToClose);
     }
 
 
