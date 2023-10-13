@@ -22,6 +22,8 @@ public class TransactionManager {
 
     private AccountDatabase accounts = new AccountDatabase();
 
+    private static final int MONEY_MARKET_MINIMUM = 2000;
+
 
     /**
      * Run method to handle inputs.
@@ -266,7 +268,7 @@ public class TransactionManager {
      * @author Ayaan Qayyum
      */
     private void caseOpenMoneyMarketSavings() {
-        if (quantity < 2000) {
+        if (quantity < MONEY_MARKET_MINIMUM) {
             System.out.println("Minimum deposit not reached!");
         } else {
             MoneyMarket newAccount = new MoneyMarket(profile, quantity);
