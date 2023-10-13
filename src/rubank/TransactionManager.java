@@ -72,7 +72,7 @@ public class TransactionManager {
     /**
      * Takes inputs and puts it into account format.
      * Command format:
-     * command, accountType, fname, lname, dob, quantity, campusCode.
+     * command, accountType, fname, lname, dob, quantity, (campusCode or isLoyal) .
      * @author Ayaan Qayyum
      */
 
@@ -83,11 +83,11 @@ public class TransactionManager {
 
     private boolean profileProcessor() {
         try {
-            if (parts.length < 5) {
+            if (parts.length <= 5) {
                 System.out.println("Command too short!");
                 return false;
             }
-            if (parts.length > 7) {
+            if (parts.length >= 8) {
                 System.out.println("Command too long!");
                 return false;
             }
