@@ -6,6 +6,17 @@ public class MoneyMarket extends Account{
     public static final double MONTHLY_FEE = 25.0;
 
     /**
+     * Initializes MoneyMarket.
+     * @author Ayaan Qayyum
+     */
+
+    public MoneyMarket(Profile profile, Double quantity) {
+        this.holder = profile;
+        this.balance = quantity;
+        this.withdrawal = 0;
+    }
+
+    /**
      * Returns the monthly interest.
      * @author Ayaan Qayyum
      * @return monthly interest
@@ -36,8 +47,6 @@ public class MoneyMarket extends Account{
     }
 
     @Override
-    public int compareTo(Account o) {
-        return 0;
     }
 
 }
