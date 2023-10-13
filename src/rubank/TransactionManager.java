@@ -220,7 +220,7 @@ public class TransactionManager {
     private boolean caseClose () {
         try {
             // test for invalid command format
-            profileProcessor();
+            if (!profileProcessor()) return false;
             switch (accountType) {
                 case ("C"):
                     caseCloseChecking();
@@ -269,7 +269,7 @@ public class TransactionManager {
      */
     private boolean caseDeposit () {
         try {
-            profileProcessor();
+            if (!profileProcessor()) return false;
 
             Account accountToDeposit = new Checking();
 
@@ -287,7 +287,7 @@ public class TransactionManager {
      */
     private boolean caseWithdraw() {
         try {
-            profileProcessor();
+            if (!profileProcessor()) return false;
 //            Account accountToWithdraw = new Account(profile, quantity);
 //            boolean success = accounts.withdraw(accountToWithdraw, quantity);
 //            if(!success) {
