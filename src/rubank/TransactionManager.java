@@ -233,8 +233,14 @@ public class TransactionManager {
         return true;
     }
 
+    /**
+     * Handles opening the Checking account.
+     * @author Ayaan Qayyum
+     */
     private void caseOpenChecking() {
 
+        Checking newAccount = new Checking(profile, quantity);
+        accounts.open(newAccount);
     }
 
     private void caseOpenCollegeChecking() {
