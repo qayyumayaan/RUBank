@@ -17,6 +17,7 @@ public class TransactionManager {
     Profile profile;
     Double quantity;
     Campus campusCode;
+    Boolean loyalty;
 
     private AccountDatabase accounts = new AccountDatabase();
 
@@ -88,6 +89,10 @@ public class TransactionManager {
 
             if (!dateChecker(parts[4])) return false;
             if (!quantityProcessor()) return false;
+
+            // college checking parts[6] is campus code
+            // savings parts[6] is loyalty
+            // monkey market is loyal by default
             if (!campusProcessor()) return false;
 
             accountType = parts[1];
@@ -134,7 +139,7 @@ public class TransactionManager {
 
     /**
      * Checks if the campus code is valid and processes it.
-     * @return
+     * @return if correctly processed.
      * @author Ayaan Qayyum
      */
     private boolean campusProcessor() {
