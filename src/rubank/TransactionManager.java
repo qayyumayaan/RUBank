@@ -132,7 +132,6 @@ public class TransactionManager {
 
     /**
      * Checks if the quantity specified is valid and processes it.
-     * @return
      * @return if quantity is valid.
      * @author Ayaan Qayyum
      */
@@ -169,8 +168,6 @@ public class TransactionManager {
     }
 
     /**
-     * Checks if the campus code is valid and processes it.
-     * @return
      * Checks if the loyalty code is valid and processes it.
      * @return if loyalty code is valid.
      * @author Ayaan Qayyum
@@ -238,7 +235,6 @@ public class TransactionManager {
      * @author Ayaan Qayyum
      */
     private void caseOpenChecking() {
-
         Checking newAccount = new Checking(profile, quantity);
         accounts.open(newAccount);
     }
@@ -248,7 +244,6 @@ public class TransactionManager {
      * @author Ayaan Qayyum
      */
     private void caseOpenCollegeChecking() {
-
         CollegeChecking newAccount = new CollegeChecking(profile, quantity);
         accounts.open(newAccount);
     }
@@ -267,13 +262,9 @@ public class TransactionManager {
      * @author Ayaan Qayyum
      */
     private void caseOpenMoneyMarketSavings() {
-
         MoneyMarket newAccount = new MoneyMarket(profile, quantity);
         accounts.open(newAccount);
     }
-
-
-
 
 
     /**
