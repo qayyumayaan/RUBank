@@ -281,7 +281,6 @@ public class TransactionManager {
     private boolean caseClose () {
         try {
             profileProcessor();
-            // test for invalid command format
             switch (accountType) {
                 case ("C"):
                     caseCloseChecking();
@@ -297,10 +296,7 @@ public class TransactionManager {
                     break;
                 default:
                     System.out.println(command + " is an invalid command!");
-
             }
-
-//            accounts.close(account);
         } catch (Exception e) {
             System.out.println("Error in caseClose: " + e.getMessage());
         }
@@ -339,13 +335,11 @@ public class TransactionManager {
      * @author Ayaan Qayyum
      */
     private void caseCloseMoneyMarketSavings() {
-        Savings accountToClose = new Savings(profile, quantity, false);
+        MoneyMarket accountToClose = new MoneyMarket(profile, quantity);
         accounts.close(accountToClose);
     }
 
 
-
-    
     /**
      * Handles command D, Deposit.
      * @author Ayaan Qayyum
