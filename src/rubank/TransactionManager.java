@@ -139,10 +139,10 @@ public class TransactionManager {
      * @author Ayaan Qayyum
      */
     private boolean quantityProcessor() {
-        if (parts.length >= 5) {
+        if (parts.length >= 6) {
             try {
-                quantity = Double.parseDouble(parts[6]);
-//                System.out.println(quantity);
+                quantity = Double.parseDouble(parts[5]);
+                if (quantity < 0) return false;
             } catch (Exception e) {
                 System.out.println("Quantity is invalid!");
                 return false;
@@ -157,7 +157,7 @@ public class TransactionManager {
      * @author Ayaan Qayyum
      */
     private boolean campusProcessor() {
-        if (parts.length == 6) {
+        if (parts.length == 7) {
             int campus;
             try {
                 campus = Integer.parseInt(parts[6]);
@@ -176,7 +176,7 @@ public class TransactionManager {
      * @author Ayaan Qayyum
      */
     private boolean loyaltyProcessor() {
-        if (parts.length == 6) {
+        if (parts.length == 7) {
             try {
                 isLoyal = Boolean.parseBoolean(parts[6]);
             } catch (Exception e) {
@@ -240,6 +240,7 @@ public class TransactionManager {
     private void caseOpenChecking() {
         Checking newAccount = new Checking(profile, quantity);
         accounts.open(newAccount);
+        System.out.println("Successfully added " + profile.getFname() + " " + profile.getLname() + " Checking Account. ");
     }
 
     /**
