@@ -253,8 +253,13 @@ public class TransactionManager {
         accounts.open(newAccount);
     }
 
+    /**
+     * Handles opening the Savings account.
+     * @author Ayaan Qayyum
+     */
     private void caseOpenSavings() {
-
+        Savings newAccount = new Savings(profile, quantity, isLoyal);
+        accounts.open(newAccount);
     }
 
     private void caseOpenMoneyMarketSavings() {
