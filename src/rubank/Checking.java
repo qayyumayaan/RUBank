@@ -26,10 +26,12 @@ public class Checking extends Account {
     }
 
     @Override
-    public int compareTo(Account o) {
-        return 0;
+    public int compareTo(Account other) {
+        return super.compareTo(other);
     }
 
     public Checking(Profile profile, Double quantity) {
+        this.holder = profile;
+        this.balance = quantity;
     }
 }
