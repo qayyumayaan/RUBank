@@ -105,6 +105,16 @@ public class Date implements Comparable<Date>{
         eventDate.set(year, month - 1, day);
         return eventDate.compareTo(today) > 0;
     }
+
+    public boolean isTodayOrFuture() {
+        Calendar today = Calendar.getInstance();
+        Calendar eventDate = Calendar.getInstance();
+        eventDate.set(year, month - 1, day);
+        return eventDate.compareTo(today) >= 0;
+    }
+
+
+
     public static void main(String[] args) {
         testDaysInFeb_NonLeap();
         testDaysInFeb_Leap();
