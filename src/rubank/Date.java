@@ -15,6 +15,8 @@ public class Date implements Comparable<Date>{
     public static final int QUATERCENTENNIAL = 400;
     public static final int MONTHS_IN_YEAR = 12;
     public static final int FEB_LEAP_YEAR_DAYS = 29;
+
+    public static final int AGE_SIXTEEN = 16;
     public static final int[] DAYS_IN_MONTH = {
             0, // placeholder
             31, // January
@@ -87,6 +89,13 @@ public class Date implements Comparable<Date>{
 
     }
 
+    public boolean isOlderThanSixteen() {
+        Calendar today = Calendar.getInstance();
+        today.add(Calendar.YEAR, -AGE_SIXTEEN);
+        Calendar eventDate = Calendar.getInstance();
+        eventDate.set(year, month - 1, day);
+        return eventDate.compareTo(today) < 0;
+    }
 
     public static void main(String[] args) {
         testDaysInFeb_NonLeap();
