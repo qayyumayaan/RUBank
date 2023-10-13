@@ -270,11 +270,8 @@ public class TransactionManager {
         try {
             if (!profileProcessor()) return false;
 
-            Account accountToDeposit = new Checking();
 //            Account accountToDeposit = new Checking();
 
-            accountToDeposit.setBalance(quantity);
-            accounts.deposit(accountToDeposit);
 //            accountToDeposit.setBalance(quantity);
 //            accounts.deposit(accountToDeposit);
         } catch (Exception e) {
