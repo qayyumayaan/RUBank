@@ -220,7 +220,6 @@ public class TransactionManager {
     private boolean caseClose () {
         try {
             // test for invalid command format
-            if (!profileProcessor()) return false;
             switch (accountType) {
                 case ("C"):
                     caseCloseChecking();
@@ -236,6 +235,7 @@ public class TransactionManager {
                     break;
                 default:
                     System.out.println(command + " is an invalid command!");
+
             }
 
 //            accounts.close(account);
@@ -246,7 +246,6 @@ public class TransactionManager {
     }
 
     private void caseCloseChecking() {
-
     }
 
     private void caseCloseCollegeChecking() {

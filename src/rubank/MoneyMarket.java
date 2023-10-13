@@ -8,13 +8,18 @@ public class MoneyMarket extends Account{
     /**
      * Returns the monthly interest.
      * @author Ayaan Qayyum
-     * @return
+     * @return monthly interest
      */
     @Override
     public double monthlyInterest() {
         return ANNUAL_INTEREST / 12;
     }
 
+    /**
+     * Returns the monthly interest.
+     * @author Ayaan Qayyum
+     * @return monthly fee.
+     */
     @Override
     public double monthlyFee() {
         if (balance >= 2000) return 0;
@@ -24,7 +29,7 @@ public class MoneyMarket extends Account{
     /**
      * Updates the number of withdrawals.
      * @author Ayaan Qayyum
-     * @return
+     * @return new number of withdrawals.
      */
     public int updateNumberOfWithdrawals() {
         return withdrawal++;

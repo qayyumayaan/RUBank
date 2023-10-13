@@ -43,7 +43,6 @@ public class Profile implements Comparable<Profile>{
      * Setter for dob
      * @param dob
      */
-    // Setter for dob
     public void setDob(Date dob) {
         this.dob = dob;
     }

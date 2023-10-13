@@ -29,4 +29,7 @@ public class Checking extends Account {
     public int compareTo(Account o) {
         return 0;
     }
+
+    public Checking(Profile profile, Double quantity) {
+    }
 }

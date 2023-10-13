@@ -7,6 +7,10 @@ public class CollegeChecking extends Checking {
 
     private Campus campus;
 
+    public CollegeChecking(Profile profile, Double quantity) {
+        super(profile, quantity);
+    }
+
     /**
      * Checks if account balance is >= 1000, else applies fee.
      * @return MONTHLY_FEE
@@ -17,7 +21,14 @@ public class CollegeChecking extends Checking {
         return MONTHLY_FEE;
     }
 
+    /**
+     * Returns the monthly interest.
+     * @author Ayaan Qayyum
+     * @return monthly interest
+     */
     public double monthlyInterest() {
         return ANNUAL_INTEREST / 12;
     }
+
+
 }
