@@ -92,24 +92,26 @@ public class AccountDatabase {
 
     /**
      * Prints sorted by account type and profile.
-     * Uses bubble sort.
+     * Uses insertion sort.
      * @author Ayaan Qayyum
      */
     public void printSorted() {
-        for (int i = 0; i < numberOfAccounts - 1; i++) {
-            for (int j = 0; j < numberOfAccounts - i - 1; j++) {
-                if (accounts[j].compareTo(accounts[j + 1]) > 0) {
-                    Account temp = accounts[j];
-                    accounts[j] = accounts[j + 1];
-                    accounts[j + 1] = temp;
-                }
+        for (int i = 1; i < numberOfAccounts; i++) {
+            Account key = accounts[i];
+            int j = i - 1;
+
+            while (j >= 0 && accounts[j].compareTo(key) > 0) {
+                accounts[j + 1] = accounts[j];
+                j = j - 1;
             }
+            accounts[j + 1] = key;
         }
 
         for (int i = 0; i < numberOfAccounts; i++) {
             System.out.println(accounts[i].toString());
         }
     }
+
 
     /**
      * Prints an account's interest and fees.
