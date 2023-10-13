@@ -17,7 +17,7 @@ public class TransactionManager {
     Profile profile;
     Double quantity;
     Campus campusCode;
-    Boolean loyalty;
+    Boolean isLoyal;
     String[] accountTypes = {"C", "CC", "S", "MM"};
 
     private AccountDatabase accounts = new AccountDatabase();
@@ -90,7 +90,7 @@ public class TransactionManager {
 
 
             // college checking parts[6] is campus code
-            // savings parts[6] is loyalty
+            // savings parts[6] is isLoyal
             // monkey market is loyal by default
 
             accountType = parts[1];
@@ -109,7 +109,7 @@ public class TransactionManager {
             } else if (accountType.equals("S")) {
                 if (!loyaltyProcessor()) return false;
             } else if (accountType.equals("MM")) {
-                loyalty = true;
+                isLoyal = true;
             }
 
         } catch (Exception e) {
@@ -124,7 +124,6 @@ public class TransactionManager {
      * @author Ayaan Qayyum
      */
     private boolean accountTypeChecker() {
-        String[] accountTypes = {"C", "CC", "S", "MM"};
         for (String accountName : accountTypes) {
             if (accountName.equals(parts[1])) return true;
         }
@@ -157,7 +156,7 @@ public class TransactionManager {
      */
     private boolean campusProcessor() {
         if (parts.length == 6) {
-            int campus = 0;
+            int campus;
             try {
                 campus = Integer.parseInt(parts[6]);
             } catch (Exception e) {
@@ -179,7 +178,7 @@ public class TransactionManager {
     private boolean loyaltyProcessor() {
         if (parts.length == 6) {
             try {
-                loyalty = Boolean.parseBoolean(parts[6]);
+                isLoyal = Boolean.parseBoolean(parts[6]);
             } catch (Exception e) {
                 System.out.println("Loyalty code is invalid!");
                 return false;
@@ -195,8 +194,6 @@ public class TransactionManager {
      * @return if date is formatted correctly.
      */
     private boolean dateChecker(String dobRaw) {
-        // this is JUST to make sure it is not completely broken.
-        // specific checks come later.
         int count = 0;
         for (char c : dobRaw.toCharArray()) {
             if (c == '/') {
