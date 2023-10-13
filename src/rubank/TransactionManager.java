@@ -243,8 +243,14 @@ public class TransactionManager {
         accounts.open(newAccount);
     }
 
+    /**
+     * Handles opening the College Checking account.
+     * @author Ayaan Qayyum
+     */
     private void caseOpenCollegeChecking() {
 
+        CollegeChecking newAccount = new CollegeChecking(profile, quantity);
+        accounts.open(newAccount);
     }
 
     private void caseOpenSavings() {
