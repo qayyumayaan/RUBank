@@ -122,6 +122,7 @@ public class TransactionManager {
     /**
      * Checks if the quantity specified is valid and processes it.
      * @return
+     * @return if quantity is valid.
      * @author Ayaan Qayyum
      */
     private boolean quantityProcessor() {
@@ -159,6 +160,8 @@ public class TransactionManager {
     /**
      * Checks if the campus code is valid and processes it.
      * @return
+     * Checks if the loyalty code is valid and processes it.
+     * @return if loyalty code is valid.
      * @author Ayaan Qayyum
      */
     private boolean loyaltyProcessor() {
@@ -173,6 +176,12 @@ public class TransactionManager {
         return true;
     }
 
+    /**
+     * Checks if the date format is correct
+     * Priming for another check later in the command process.
+     * @param dobRaw
+     * @return if date is formatted correctly.
+     */
     private boolean dateChecker(String dobRaw) {
         // this is JUST to make sure it is not completely broken.
         // specific checks come later.
