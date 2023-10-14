@@ -146,7 +146,7 @@ public class TransactionManager {
                         return false;
                     } else if (command.equals("D")) {
                         System.out.println("Deposit - amount cannot be 0 or negative.");
-                        return false;                        
+                        return false;
                     }
                 }
             } catch (Exception e) {
@@ -466,6 +466,7 @@ public class TransactionManager {
 
     /**
      * Handles command P, Display.
+     * Sort by account type and profile.
      * @author Ayaan Qayyum
      */
     private boolean caseDisplay () {

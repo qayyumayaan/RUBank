@@ -47,4 +47,9 @@ public class Savings extends Account {
     public int compareTo(Account other) {
         return super.compareTo(other);
     }
+
+    @Override
+    public String toString() {
+        return "Savings::" + holder.getFname() + " " + holder.getLname() + " " + holder.getDob() + "::Balance $" + String.format("%.2f", balance) + (isLoyal ? "::is loyal" : "");
+    }
 }
