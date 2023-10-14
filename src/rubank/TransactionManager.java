@@ -213,6 +213,11 @@ public class TransactionManager {
         return count == 2;
     }
 
+    private boolean advancedDateChecker(Date dob) {
+        if (!dob.isValid()) {
+            System.out.println("DOB invalid: " + dob + " not a valid calendar date!");
+            return false;
+        }
 
     /**
      * Handles command O, Open.
