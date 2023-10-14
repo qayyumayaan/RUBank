@@ -141,8 +141,13 @@ public class TransactionManager {
             try {
                 quantity = Double.parseDouble(parts[5]);
                 if (quantity <= 0) {
-                    System.out.println("Initial deposit cannot be 0 or negative.");
-                    return false;
+                    if (command.equals("O")) {
+                        System.out.println("Initial deposit cannot be 0 or negative.");
+                        return false;
+                    } else if (command.equals("D")) {
+                        System.out.println("Deposit - amount cannot be 0 or negative.");
+                        return false;                        
+                    }
                 }
             } catch (Exception e) {
                 System.out.println("Not a valid amount.");
