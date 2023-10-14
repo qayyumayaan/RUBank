@@ -85,10 +85,7 @@ public class TransactionManager {
 
     private boolean profileProcessor() {
         try {
-            if (parts.length <= 5) {
-                System.out.println("Missing data for opening an account.");
-                return false;
-            }
+
             if (parts.length >= 8) {
                 System.out.println("Command too long!");
                 return false;
@@ -237,6 +234,10 @@ public class TransactionManager {
      */
     private boolean caseOpen() {
         try {
+            if (parts.length <= 5) {
+                System.out.println("Missing data for opening an account.");
+                return false;
+            }
             if (!profileProcessor()) return false;
             switch (accountType) {
                 case ("C"):
@@ -314,7 +315,11 @@ public class TransactionManager {
      */
     private boolean caseClose() {
         try {
-            profileProcessor();
+            if (parts.length <= 4) {
+                System.out.println("Missing data for closing an account.");
+                return false;
+            }
+            if (!profileProcessor()) return false;
             switch (accountType) {
                 case ("C"):
                     caseCloseChecking();
