@@ -50,4 +50,7 @@ public abstract class Account implements Comparable<Account> {
         this.balance = balance;
     }
 
+    @Override
+    public abstract String toString();
+
 }
