@@ -219,6 +219,10 @@ public class TransactionManager {
             return false;
         }
 
+        if(dob.isTodayOrFuture()) {
+            System.out.println("DOB invalid: " + dob + " cannot be today or a future day.");
+            return false;
+        }
     /**
      * Handles command O, Open.
      * @author Ayaan Qayyum
