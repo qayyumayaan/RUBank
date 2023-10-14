@@ -108,7 +108,7 @@ public class TransactionManager {
             if (!quantityProcessor()) return false; // parts[5]
             if (accountType.equals("CC")) { // parts[6]
                 if(!dob.isYoungerThanTwentyFour()) {
-                    System.out.println("DOB is older than 24 to open CC!");
+                    System.out.println("DOB invalid: " + dob + " over 24.");
                     return false;
                 }
                 if (!campusProcessor()) return false;
@@ -144,7 +144,10 @@ public class TransactionManager {
         if (parts.length >= 6) {
             try {
                 quantity = Double.parseDouble(parts[5]);
-                if (quantity < 0) return false;
+                if (quantity < 0) {
+                    System.out.println("Initial deposit cannot be 0 or negative.");
+                    return false;
+                }
             } catch (Exception e) {
                 System.out.println("Quantity is invalid!");
                 return false;
@@ -164,7 +167,7 @@ public class TransactionManager {
             try {
                 campus = Integer.parseInt(parts[6]);
             } catch (Exception e) {
-                System.out.println("Campus code is invalid!");
+                System.out.println("Invalid campus code.");
                 return false;
             }
             campusCode = Campus.fromCode(campus);
@@ -183,6 +186,7 @@ public class TransactionManager {
                 isLoyal = Boolean.parseBoolean(parts[6]);
             } catch (Exception e) {
                 System.out.println("Loyalty code is invalid!");
+//                System.out.println("");
                 return false;
             }
         }
@@ -269,7 +273,7 @@ public class TransactionManager {
      */
     private void caseOpenMoneyMarketSavings() {
         if (quantity < MONEY_MARKET_MINIMUM) {
-            System.out.println("Minimum deposit not reached!");
+            System.out.println("Minimum of $2000 to open a Money Market account.");
         } else {
             MoneyMarket newAccount = new MoneyMarket(profile, quantity);
             accounts.open(newAccount);
@@ -404,7 +408,7 @@ public class TransactionManager {
                     processWithdraw(accountToWithdrawMM);
                     break;
                 default:
-                    System.out.println(command + " is an invalid command!");
+                    System.out.println("Invalid command!");
             }
         } catch (Exception e) {
             System.out.println("Error in caseWithdraw: " + e.getMessage());
@@ -425,6 +429,10 @@ public class TransactionManager {
      */
     private boolean caseDisplay () {
         try {
+            if (accounts.isEmpty()) {
+                System.out.println("Account Database is empty!");
+                return false;
+            }
             accounts.printSorted();
         } catch (Exception e) {
             System.out.println("Error in caseDisplay: " + e.getMessage());
@@ -438,6 +446,10 @@ public class TransactionManager {
      */
     private boolean caseDisplayWithDetails () {
         try {
+            if (accounts.isEmpty()) {
+                System.out.println("Account Database is empty!");
+                return false;
+            }
             accounts.printFeesAndInterests();
         } catch (Exception e) {
             System.out.println("Error in caseDisplayWithDetails: " + e.getMessage());
@@ -451,6 +463,10 @@ public class TransactionManager {
      */
     private boolean caseUpdateBalance () {
         try {
+            if (accounts.isEmpty()) {
+                System.out.println("Account Database is empty!");
+                return false;
+            }
             accounts.printUpdatedBalances();
         } catch (Exception e) {
             System.out.println("Error in opening: " + e.getMessage());
