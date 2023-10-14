@@ -249,7 +249,7 @@ public class TransactionManager {
     private void caseOpenChecking() {
         Checking newAccount = new Checking(profile, quantity);
         accounts.open(newAccount);
-        System.out.println("Successfully added " + profile.getFname() + " " + profile.getLname() + " Checking Account. ");
+//        System.out.println("Successfully added " + profile.getFname() + " " + profile.getLname() + " Checking Account. ");
     }
 
     /**
@@ -259,6 +259,7 @@ public class TransactionManager {
     private void caseOpenCollegeChecking() {
         CollegeChecking newAccount = new CollegeChecking(profile, quantity);
         accounts.open(newAccount);
+//        System.out.println("Successfully added " + profile.getFname() + " " + profile.getLname() + " College Checking Account. ");
     }
 
     /**
@@ -268,6 +269,7 @@ public class TransactionManager {
     private void caseOpenSavings() {
         Savings newAccount = new Savings(profile, quantity, isLoyal);
         accounts.open(newAccount);
+//        System.out.println("Successfully added " + profile.getFname() + " " + profile.getLname() + " Open Savings Account. ");
     }
 
     /**
@@ -281,6 +283,7 @@ public class TransactionManager {
             MoneyMarket newAccount = new MoneyMarket(profile, quantity);
             accounts.open(newAccount);
         }
+//        System.out.println("Successfully added " + profile.getFname() + " " + profile.getLname() + " Open Money Market Savings Account. ");
     }
 
 
