@@ -331,7 +331,7 @@ public class TransactionManager {
                 default:
                     System.out.println("Invalid command!");
             }
-            System.out.println("Closed account successfully!");
+            System.out.println( profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") has been closed.");
         } catch (Exception e) {
             System.out.println("Error in caseClose: " + e.getMessage());
         }
