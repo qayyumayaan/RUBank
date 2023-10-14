@@ -86,7 +86,7 @@ public class TransactionManager {
     private boolean profileProcessor() {
         try {
             if (parts.length <= 5) {
-                System.out.println("Command too short!");
+                System.out.println("Missing data for opening an account.");
                 return false;
             }
             if (parts.length >= 8) {
