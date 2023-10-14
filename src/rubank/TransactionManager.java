@@ -231,11 +231,14 @@ public class TransactionManager {
                     caseOpenMoneyMarketSavings();
                     break;
                 default:
-                    System.out.println(command + " is an invalid command!");
+                    System.out.println("Invalid command!");
+//                    John Doe 2/19/2000(CC) opened.
+//                John Doe 2/19/2000(CC) opened.
             }
         } catch(Exception e){
             System.out.println("Error in caseOpen: " + e.getMessage());
         }
+        System.out.println( profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") opened.");
         return true;
     }
 
@@ -302,7 +305,7 @@ public class TransactionManager {
                     caseCloseMoneyMarketSavings();
                     break;
                 default:
-                    System.out.println(command + " is an invalid command!");
+                    System.out.println("Invalid command!");
             }
             System.out.println("Closed account successfully!");
         } catch (Exception e) {
@@ -366,6 +369,7 @@ public class TransactionManager {
                     accounts.deposit(accountToDepositCC);
                     break;
                 case ("S"):
+                    isLoyal = false;
                     Savings accountToDepositS = new Savings(profile, quantity, isLoyal);
                     accounts.deposit(accountToDepositS);
                     break;
@@ -374,7 +378,7 @@ public class TransactionManager {
                     accounts.deposit(accountToDepositMM);
                     break;
                 default:
-                    System.out.println(command + " is an invalid command!");
+                    System.out.println("Invalid command!");
             }
         } catch (Exception e) {
             System.out.println("Error in caseDeposit: " + e.getMessage());
