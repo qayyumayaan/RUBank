@@ -166,6 +166,10 @@ public class TransactionManager {
             int campus;
             try {
                 campus = Integer.parseInt(parts[6]);
+                if (campus != 0 || campus != 1 || campus != 2) {
+                    System.out.println("Invalid campus code.");
+                    return false;
+                }
             } catch (Exception e) {
                 System.out.println("Invalid campus code.");
                 return false;
