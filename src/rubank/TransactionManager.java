@@ -149,7 +149,7 @@ public class TransactionManager {
                     return false;
                 }
             } catch (Exception e) {
-                System.out.println("Quantity is invalid!");
+                System.out.println("Not a valid amount.");
                 return false;
             }
         }
