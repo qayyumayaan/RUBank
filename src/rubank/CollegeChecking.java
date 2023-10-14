@@ -30,5 +30,10 @@ public class CollegeChecking extends Checking {
         return ANNUAL_INTEREST / 12;
     }
 
+    @Override
+    public String toString() {
+        return "College Checking::" + holder.getFname() + " " + holder.getLname() + " " + holder.getDob() + "::Balance $" + String.format("%.2f", balance) + "::" + campus;
+    }
+
 
 }
