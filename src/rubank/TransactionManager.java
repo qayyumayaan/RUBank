@@ -144,7 +144,7 @@ public class TransactionManager {
         if (parts.length >= 6) {
             try {
                 quantity = Double.parseDouble(parts[5]);
-                if (quantity < 0) {
+                if (quantity <= 0) {
                     System.out.println("Initial deposit cannot be 0 or negative.");
                     return false;
                 }
