@@ -209,6 +209,12 @@ public class TransactionManager {
         return count == 2;
     }
 
+    /**
+     * Checks if the date satisfies requirements for account processing using Date class.
+     * @param dob
+     * @return if date is formatted correctly.
+     * @author Ayaan Qayyum
+     */
     private boolean advancedDateChecker(Date dob) {
         if (!dob.isValid()) {
             System.out.println("DOB invalid: " + dob + " not a valid calendar date!");
@@ -254,13 +260,10 @@ public class TransactionManager {
                     break;
                 default:
                     System.out.println("Invalid command!");
-//                    John Doe 2/19/2000(CC) opened.
-//                John Doe 2/19/2000(CC) opened.
             }
         } catch(Exception e){
             System.out.println("Error in caseOpen: " + e.getMessage());
         }
-        System.out.println( profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") opened.");
         return true;
     }
 
@@ -271,7 +274,7 @@ public class TransactionManager {
     private void caseOpenChecking() {
         Checking newAccount = new Checking(profile, quantity);
         accounts.open(newAccount);
-//        System.out.println("Successfully added " + profile.getFname() + " " + profile.getLname() + " Checking Account. ");
+        System.out.println( profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") opened.");
     }
 
     /**
@@ -281,7 +284,7 @@ public class TransactionManager {
     private void caseOpenCollegeChecking() {
         CollegeChecking newAccount = new CollegeChecking(profile, quantity);
         accounts.open(newAccount);
-//        System.out.println("Successfully added " + profile.getFname() + " " + profile.getLname() + " College Checking Account. ");
+        System.out.println( profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") opened.");
     }
 
     /**
@@ -291,7 +294,7 @@ public class TransactionManager {
     private void caseOpenSavings() {
         Savings newAccount = new Savings(profile, quantity, isLoyal);
         accounts.open(newAccount);
-//        System.out.println("Successfully added " + profile.getFname() + " " + profile.getLname() + " Open Savings Account. ");
+        System.out.println( profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") opened.");
     }
 
     /**
@@ -304,8 +307,8 @@ public class TransactionManager {
         } else {
             MoneyMarket newAccount = new MoneyMarket(profile, quantity);
             accounts.open(newAccount);
+            System.out.println( profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") opened.");
         }
-//        System.out.println("Successfully added " + profile.getFname() + " " + profile.getLname() + " Open Money Market Savings Account. ");
     }
 
 
