@@ -159,4 +159,9 @@ public class AccountDatabase {
                     accounts[i].holder, updatedBalance);
         }
     }
+
+    public boolean isEmpty() {
+        if (numberOfAccounts == 0) return true;
+        return false;
+    }
 }
