@@ -66,7 +66,7 @@ public class TransactionManager {
                     scanner.close();
                     return;
                 default:
-                    System.out.println(command + " is an invalid command!");
+                    System.out.println("Invalid command!");
             }
         }
     }
