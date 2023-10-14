@@ -100,9 +100,8 @@ public class TransactionManager {
             String lname = parts[3];
             if (!dateChecker(parts[4])) return false;
             Date dob = new Date(parts[4]);
-            if (!dob.isOlderThanSixteen() || dob.isTodayOrFuture() || !dob.isValid()) return false;
+            if (!advancedDateChecker(dob)) return false;
             profile = new Profile(fname, lname, dob);
-
             if (command.equals("C")) return true; // break and do not check parts[5], parts[6]
 
             if (!quantityProcessor()) return false; // parts[5]
@@ -223,6 +222,15 @@ public class TransactionManager {
             System.out.println("DOB invalid: " + dob + " cannot be today or a future day.");
             return false;
         }
+
+        if(!dob.isOlderThanSixteen()) {
+            System.out.println("DOB invalid: " + dob + " under 16.");
+            return false;
+        }
+        return true;
+    }
+
+
     /**
      * Handles command O, Open.
      * @author Ayaan Qayyum
