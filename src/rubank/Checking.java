@@ -34,4 +34,9 @@ public class Checking extends Account {
         this.holder = profile;
         this.balance = quantity;
     }
+
+    @Override
+    public String toString() {
+        return "Checking::" + holder.getFname() + " " + holder.getLname() + " " + holder.getDob() + "::Balance $" + String.format("%.2f", balance);
+    }
 }
