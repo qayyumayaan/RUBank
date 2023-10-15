@@ -42,7 +42,6 @@ public class AccountDatabase {
     public boolean open(Account account) {
         int accountNum = find(account);
         if (accountNum != -1) {
-            System.out.println(account.getHolder().getFname() + " " + account.getHolder().getLname() + " " + account.getHolder().getDob() + "(" + ") is already in database.");
             return false;
         }
 
