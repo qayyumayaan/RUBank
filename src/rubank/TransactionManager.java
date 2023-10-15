@@ -258,6 +258,8 @@ public class TransactionManager {
         Checking newAccount = new Checking(profile, quantity);
         if (accounts.open(newAccount)) {
             System.out.println(profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") opened.");
+        } else {
+            System.out.println(profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") is already in the database.");
         }
     }
 
@@ -269,6 +271,8 @@ public class TransactionManager {
         CollegeChecking newAccount = new CollegeChecking(profile, quantity);
         if (accounts.open(newAccount)) {
             System.out.println(profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") opened.");
+        } else {
+            System.out.println(profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") is already in the database.");
         }
     }
 
@@ -280,6 +284,8 @@ public class TransactionManager {
         Savings newAccount = new Savings(profile, quantity, isLoyal);
         if (accounts.open(newAccount)) {
             System.out.println(profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") opened.");
+        } else {
+            System.out.println(profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") is already in the database.");
         }
     }
 
@@ -294,6 +300,8 @@ public class TransactionManager {
             MoneyMarket newAccount = new MoneyMarket(profile, quantity);
             if (accounts.open(newAccount)) {
                 System.out.println( profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") opened.");
+            } else {
+                System.out.println(profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") is already in the database.");
             }
         }
 
@@ -331,7 +339,9 @@ public class TransactionManager {
      */
     private void caseCloseChecking() {
         Checking accountToClose = new Checking(profile, quantity);
-        accounts.close(accountToClose);
+        if (accounts.close(accountToClose)) {
+            System.out.println( profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") has been closed.");
+        }
     }
 
     /**
@@ -340,7 +350,9 @@ public class TransactionManager {
      */
     private void caseCloseCollegeChecking() {
         CollegeChecking accountToClose = new CollegeChecking(profile, quantity);
-        accounts.close(accountToClose);
+        if (accounts.close(accountToClose)) {
+            System.out.println( profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") has been closed.");
+        }
     }
 
     /**
@@ -349,7 +361,9 @@ public class TransactionManager {
      */
     private void caseCloseSavings() {
         Savings accountToClose = new Savings(profile, quantity, false);
-        accounts.close(accountToClose);
+        if (accounts.close(accountToClose)) {
+            System.out.println( profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") has been closed.");
+        }
     }
 
     /**
@@ -358,7 +372,9 @@ public class TransactionManager {
      */
     private void caseCloseMoneyMarketSavings() {
         MoneyMarket accountToClose = new MoneyMarket(profile, quantity);
-        accounts.close(accountToClose);
+        if (accounts.close(accountToClose)) {
+            System.out.println( profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") has been closed.");
+        }
     }
 
 
