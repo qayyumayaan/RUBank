@@ -35,12 +35,30 @@ public class AccountDatabase {
     }
 
     /**
+     * Opens an account in the database.
      * @param account
      * @return if opening was a success.
      * @author Ayaan Qayyum
      */
     public boolean open(Account account) {
         if (contains(account)) return false;
+        int accountNum = find(account);
+        if (accountNum != -1) {
+            System.out.println("Account already exists!");
+            return false;
+        }
+
+        // Check for special condition: College Checking and Checking
+        for (Account existingAccount : accounts) {
+            if (existingAccount != null) {
+                if (existingAccount.holder.equals(account.holder) &&
+                        ((existingAccount instanceof CollegeChecking && account instanceof Checking) ||
+                                (existingAccount instanceof Checking && account instanceof CollegeChecking))) {
+                    return false; // Person already has one of these account types
+                }
+            }
+        }
+
         if (accounts.length == numberOfAccounts) grow();
 
         accounts[numberOfAccounts] = account;
