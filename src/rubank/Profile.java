@@ -6,10 +6,11 @@ public class Profile implements Comparable<Profile>{
     private Date dob;
 
     /**
-     *
+     * Constructs a profile object.
      * @param fname
      * @param lname
      * @param dob
+     * @author Ayaan Qayyum
      */
     public Profile(String fname, String lname, Date dob) {
         this.fname = fname;
@@ -21,7 +22,8 @@ public class Profile implements Comparable<Profile>{
 
     /**
      * Getter for Fname
-     * @return
+     * @author Ayaan Qayyum
+     * @return first name
      */
     public String getFname() {
         return fname;
@@ -29,23 +31,26 @@ public class Profile implements Comparable<Profile>{
 
     /**
      * Setter for Fname
-     * @param fname
+     * @author Ayaan Qayyum
+     * @param fname first name
      */
     public void setFname(String fname) {
         this.fname = fname;
     }
 
     /**
-     * getter for Lname
-     * @return
+     * Getter for last name.
+     * @author Ayaan Qayyum
+     * @return last name.
      */
     public String getLname() {
         return lname;
     }
 
     /**
-     * setter for lname
+     * Setter for last name.
      * @param lname
+     * @author Ayaan Qayyum
      */
     public void setLname(String lname) {
         this.lname = lname;
@@ -53,6 +58,8 @@ public class Profile implements Comparable<Profile>{
 
     /**
      * Getter for dob
+     * @author Ayaan Qayyum
+     * @return Date of birth object in Date class format.
      */
     public Date getDob() {
         return dob;
@@ -60,7 +67,8 @@ public class Profile implements Comparable<Profile>{
 
     /**
      * Setter for dob
-     * @param dob
+     * @param dob Date of birth object in Date class format.
+     * @author Ayaan Qayyum
      */
     public void setDob(Date dob) {
         this.dob = dob;
@@ -70,7 +78,8 @@ public class Profile implements Comparable<Profile>{
     /**
      * Compares two profiles.
      * @param other the object to be compared.
-     * @return
+     * @return 
+     * @author Ayaan Qayyum
      */
     @Override
     public int compareTo(Profile other) {
