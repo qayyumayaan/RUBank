@@ -451,6 +451,7 @@ public class TransactionManager {
                     break;
                 case ("MM"):
                     MoneyMarket accountToWithdrawMM = new MoneyMarket(profile, quantity);
+                    accountToWithdrawMM.updateNumberOfWithdrawals();
                     processWithdraw(accountToWithdrawMM);
                     break;
                 default:

@@ -34,13 +34,10 @@ public class AccountDatabase {
     }
 
     /**
-     * Searches for an account if it exists in the database.
+     * @param account
+     * @return if opening was a success.
      * @author Ayaan Qayyum
      */
-    public boolean contains(Account account) {
-        return (find(account) != -1);
-    }
-
     public boolean open(Account account) {
         if (contains(account)) return false;
         if (accounts.length == numberOfAccounts) grow();
