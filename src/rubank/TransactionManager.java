@@ -447,9 +447,10 @@ public class TransactionManager {
     }
 
     private void processWithdraw(Account account) {
-        boolean success = accounts.withdraw(account);
-        if (!success) {
-            System.out.println("Insufficient funds or account not found.");
+        if (accounts.withdraw(account)) {
+            System.out.println( profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") Withdraw - balance updated.");
+        } else {
+            System.out.println( profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") Withdraw - insufficient fund.");
         }
     }
 
