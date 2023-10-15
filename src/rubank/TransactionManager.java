@@ -6,7 +6,6 @@ import java.util.Scanner;
 public class TransactionManager {
     /**
      * Runs the program, handles input and commands O, C, D, W, P, PI, UB, Q
-     * @author Ayaan Qayyum
      */
 
     Scanner scanner = new Scanner(System.in);
@@ -20,7 +19,7 @@ public class TransactionManager {
     Boolean isLoyal;
     String[] accountTypes = {"C", "CC", "S", "MM"};
 
-    private AccountDatabase accounts = new AccountDatabase();
+    private final AccountDatabase accounts = new AccountDatabase();
 
     private static final int MONEY_MARKET_MINIMUM = 2000;
 
@@ -40,33 +39,19 @@ public class TransactionManager {
             }
             command = parts[0];
             switch (command) {
-                case ("O"):
-                    caseOpen();
-                    break;
-                case ("C"):
-                    caseClose();
-                    break;
-                case ("D"):
-                    caseDeposit();
-                    break;
-                case ("W"):
-                    caseWithdraw();
-                    break;
-                case ("P"):
-                    caseDisplay();
-                    break;
-                case ("PI"):
-                    caseDisplayWithDetails();
-                    break;
-                case ("UB"):
-                    caseUpdateBalance();
-                    break;
-                case ("Q"):
+                case ("O") -> caseOpen();
+                case ("C") -> caseClose();
+                case ("D") -> caseDeposit();
+                case ("W") -> caseWithdraw();
+                case ("P") -> caseDisplay();
+                case ("PI") -> caseDisplayWithDetails();
+                case ("UB") -> caseUpdateBalance();
+                case ("Q") -> {
                     System.out.println("Transaction Manager is terminated.");
                     scanner.close();
                     return;
-                default:
-                    System.out.println("Invalid command!");
+                }
+                default -> System.out.println("Invalid command!");
             }
         }
     }
@@ -102,16 +87,18 @@ public class TransactionManager {
             if (command.equals("C")) return true; // break and do not check parts[5], parts[6]
 
             if (!quantityProcessor()) return false; // parts[5]
-            if (accountType.equals("CC")) { // parts[6]
-                if(!dob.isYoungerThanTwentyFour()) {
-                    System.out.println("DOB invalid: " + dob + " over 24.");
-                    return false;
+            switch (accountType) {
+                case "CC" -> {  // parts[6]
+                    if (!dob.isYoungerThanTwentyFour()) {
+                        System.out.println("DOB invalid: " + dob + " over 24.");
+                        return false;
+                    }
+                    if (!campusProcessor()) return false;
                 }
-                if (!campusProcessor()) return false;
-            } else if (accountType.equals("S")) {
-                if (!loyaltyProcessor()) return false;
-            } else if (accountType.equals("MM")) {
-                isLoyal = true;
+                case "S" -> {
+                    if (!loyaltyProcessor()) return false;
+                }
+                case "MM" -> isLoyal = true;
             }
         } catch (Exception e) {
             System.out.println("Error in account Processor: " + e);
@@ -201,7 +188,7 @@ public class TransactionManager {
     /**
      * Checks if the date format is correct
      * Priming for another check later in the command process.
-     * @param dobRaw
+     * @param dobRaw dob as entered from command line.
      * @return if date is formatted correctly.
      */
     private boolean dateChecker(String dobRaw) {
@@ -216,7 +203,7 @@ public class TransactionManager {
 
     /**
      * Checks if the date satisfies requirements for account processing using Date class.
-     * @param dob
+     * @param dob dob after processed to prevent fatal formatting errors.
      * @return if date is formatted correctly.
      * @author Ayaan Qayyum
      */
@@ -251,20 +238,11 @@ public class TransactionManager {
             }
             if (!profileProcessor()) return false;
             switch (accountType) {
-                case ("C"):
-                    caseOpenChecking();
-                    break;
-                case ("CC"):
-                    caseOpenCollegeChecking();
-                    break;
-                case ("S"):
-                    caseOpenSavings();
-                    break;
-                case ("MM"):
-                    caseOpenMoneyMarketSavings();
-                    break;
-                default:
-                    System.out.println("Invalid command!");
+                case ("C") -> caseOpenChecking();
+                case ("CC") -> caseOpenCollegeChecking();
+                case ("S") -> caseOpenSavings();
+                case ("MM") -> caseOpenMoneyMarketSavings();
+                default -> System.out.println("Invalid command!");
             }
         } catch(Exception e){
             System.out.println("Error in caseOpen: " + e.getMessage());
@@ -334,20 +312,11 @@ public class TransactionManager {
             }
             if (!profileProcessor()) return false;
             switch (accountType) {
-                case ("C"):
-                    caseCloseChecking();
-                    break;
-                case ("CC"):
-                    caseCloseCollegeChecking();
-                    break;
-                case ("S"):
-                    caseCloseSavings();
-                    break;
-                case ("MM"):
-                    caseCloseMoneyMarketSavings();
-                    break;
-                default:
-                    System.out.println("Invalid command!");
+                case ("C") -> caseCloseChecking();
+                case ("CC") -> caseCloseCollegeChecking();
+                case ("S") -> caseCloseSavings();
+                case ("MM") -> caseCloseMoneyMarketSavings();
+                default -> System.out.println("Invalid command!");
             }
             System.out.println( profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") has been closed.");
         } catch (Exception e) {
@@ -402,25 +371,24 @@ public class TransactionManager {
             if (!profileProcessor()) return false;
 
             switch (accountType) {
-                case ("C"):
+                case ("C") -> {
                     Checking accountToDepositC = new Checking(profile, quantity);
                     accounts.deposit(accountToDepositC);
-                    break;
-                case ("CC"):
+                }
+                case ("CC") -> {
                     CollegeChecking accountToDepositCC = new CollegeChecking(profile, quantity);
                     accounts.deposit(accountToDepositCC);
-                    break;
-                case ("S"):
+                }
+                case ("S") -> {
                     isLoyal = false;
                     Savings accountToDepositS = new Savings(profile, quantity, isLoyal);
                     accounts.deposit(accountToDepositS);
-                    break;
-                case ("MM"):
+                }
+                case ("MM") -> {
                     MoneyMarket accountToDepositMM = new MoneyMarket(profile, quantity);
                     accounts.deposit(accountToDepositMM);
-                    break;
-                default:
-                    System.out.println("Invalid command!");
+                }
+                default -> System.out.println("Invalid command!");
             }
         } catch (Exception e) {
             System.out.println("Error in caseDeposit: " + e.getMessage());
@@ -437,25 +405,24 @@ public class TransactionManager {
             if (!profileProcessor()) return false;
 
             switch (accountType) {
-                case ("C"):
+                case ("C") -> {
                     Checking accountToWithdrawC = new Checking(profile, quantity);
                     processWithdraw(accountToWithdrawC);
-                    break;
-                case ("CC"):
+                }
+                case ("CC") -> {
                     CollegeChecking accountToWithdrawCC = new CollegeChecking(profile, quantity);
                     processWithdraw(accountToWithdrawCC);
-                    break;
-                case ("S"):
+                }
+                case ("S") -> {
                     Savings accountToWithdrawS = new Savings(profile, quantity, isLoyal);
                     processWithdraw(accountToWithdrawS);
-                    break;
-                case ("MM"):
+                }
+                case ("MM") -> {
                     MoneyMarket accountToWithdrawMM = new MoneyMarket(profile, quantity);
                     accountToWithdrawMM.updateNumberOfWithdrawals();
                     processWithdraw(accountToWithdrawMM);
-                    break;
-                default:
-                    System.out.println("Invalid command!");
+                }
+                default -> System.out.println("Invalid command!");
             }
         } catch (Exception e) {
             System.out.println("Error in caseWithdraw: " + e.getMessage());
