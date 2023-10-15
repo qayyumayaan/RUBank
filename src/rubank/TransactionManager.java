@@ -278,8 +278,9 @@ public class TransactionManager {
      */
     private void caseOpenChecking() {
         Checking newAccount = new Checking(profile, quantity);
-        accounts.open(newAccount);
-        System.out.println( profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") opened.");
+        if (accounts.open(newAccount)) {
+            System.out.println(profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") opened.");
+        }
     }
 
     /**
@@ -288,8 +289,9 @@ public class TransactionManager {
      */
     private void caseOpenCollegeChecking() {
         CollegeChecking newAccount = new CollegeChecking(profile, quantity);
-        accounts.open(newAccount);
-        System.out.println( profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") opened.");
+        if (accounts.open(newAccount)) {
+            System.out.println(profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") opened.");
+        }
     }
 
     /**
@@ -298,8 +300,9 @@ public class TransactionManager {
      */
     private void caseOpenSavings() {
         Savings newAccount = new Savings(profile, quantity, isLoyal);
-        accounts.open(newAccount);
-        System.out.println( profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") opened.");
+        if (accounts.open(newAccount)) {
+            System.out.println(profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") opened.");
+        }
     }
 
     /**
@@ -311,9 +314,11 @@ public class TransactionManager {
             System.out.println("Minimum of $2000 to open a Money Market account.");
         } else {
             MoneyMarket newAccount = new MoneyMarket(profile, quantity);
-            accounts.open(newAccount);
-            System.out.println( profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") opened.");
+            if (accounts.open(newAccount)) {
+                System.out.println( profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") opened.");
+            }
         }
+
     }
 
 
