@@ -26,7 +26,19 @@ public abstract class Account implements Comparable<Account> {
 
         // Assuming the Profile class has a proper compareTo method
         return this.holder.compareTo(other.holder);
+    }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+
+        Account account = (Account) obj;
+        Profile profile = account.getHolder();
+
+        return this.getHolder().getFname().equals(profile.getFname()) &&
+                this.getHolder().getLname().equals(profile.getLname()) &&
+                this.getHolder().getDob().equals(profile.getDob());
     }
 
 
