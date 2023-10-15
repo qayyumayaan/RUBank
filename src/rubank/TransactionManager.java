@@ -34,7 +34,7 @@ public class TransactionManager {
             String input = scanner.nextLine();
             parts = input.split("\\s+");
             if (parts.length == 0) {
-                System.out.println("Invalid input!");
+                System.out.println("Invalid command!");
                 continue;
             }
             command = parts[0];

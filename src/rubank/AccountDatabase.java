@@ -42,7 +42,7 @@ public class AccountDatabase {
     public boolean open(Account account) {
         int accountNum = find(account);
         if (accountNum != -1) {
-            System.out.println(account.getHolder().getFname() + " " + account.getHolder().getLname() + " " + account.getHolder().getDob() + "(" + ") already exists.");
+            System.out.println(account.getHolder().getFname() + " " + account.getHolder().getLname() + " " + account.getHolder().getDob() + "(" + ") is already in database.");
             return false;
         }
 
@@ -52,6 +52,7 @@ public class AccountDatabase {
                 if (existingAccount.holder.equals(account.holder) &&
                         ((existingAccount instanceof CollegeChecking && account instanceof Checking) ||
                                 (existingAccount instanceof Checking && account instanceof CollegeChecking))) {
+                    System.out.println(account.getHolder().getFname() + " " + account.getHolder().getLname() + " " + account.getHolder().getDob() + "(" + ") is already in database.");
                     return false; // Person already has one of these account types
                 }
             }
