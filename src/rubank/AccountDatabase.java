@@ -20,7 +20,6 @@ public class AccountDatabase {
         return -1;
     }
 
-
     /**
      * Increases the account database capacity by 4.
      * @return account number
@@ -43,7 +42,7 @@ public class AccountDatabase {
     public boolean open(Account account) {
         int accountNum = find(account);
         if (accountNum != -1) {
-            System.out.println("Account already exists!");
+            System.out.println(account.getHolder().getFname() + " " + account.getHolder().getLname() + " " + account.getHolder().getDob() + "(" + ") already exists.");
             return false;
         }
 
@@ -89,7 +88,6 @@ public class AccountDatabase {
     public boolean withdraw(Account account) {
         int index = find(account);
         if(index == -1) {
-            System.out.println("Account not found.");
             return false;
         }
 
@@ -98,7 +96,7 @@ public class AccountDatabase {
         // Assuming the withdrawal amount is set in the passed Account object
 
         if(amountToWithdraw > currentBalance) {
-            System.out.println("Insufficient funds.");
+//            System.out.println("Insufficient funds.");
             return false;
         }
 
