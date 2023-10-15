@@ -5,29 +5,48 @@ public class Profile implements Comparable<Profile>{
     private String lname;
     private Date dob;
 
-
+    /**
+     *
+     * @param fname
+     * @param lname
+     * @param dob
+     */
     public Profile(String fname, String lname, Date dob) {
         this.fname = fname;
         this.lname = lname;
         this.dob = dob;
     }
 
-    // Getter for fname
+
+
+    /**
+     * Getter for Fname
+     * @return
+     */
     public String getFname() {
         return fname;
     }
 
-    // Setter for fname
+    /**
+     * Setter for Fname
+     * @param fname
+     */
     public void setFname(String fname) {
         this.fname = fname;
     }
 
-    // Getter for lname
+    /**
+     * getter for Lname
+     * @return
+     */
     public String getLname() {
         return lname;
     }
 
-    // Setter for lname
+    /**
+     * setter for lname
+     * @param lname
+     */
     public void setLname(String lname) {
         this.lname = lname;
     }
