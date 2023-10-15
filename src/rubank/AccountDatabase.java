@@ -5,17 +5,18 @@ public class AccountDatabase {
     private int numberOfAccounts; //number of accounts in the array
 
     /**
-     * Finds an account in the array.
+     * Finds an account in the database.
      * @param account
      * @return account number
      * @author Ayaan Qayyum
      */
     private int find(Account account) {
         for (int accountNumber = 0; accountNumber < numberOfAccounts; accountNumber++) {
-            if (accounts[accountNumber].equals(account)) {
+            if (accounts[accountNumber].compareTo(account) == 0) {
                 return accountNumber;
             }
         }
+//        System.out.println("Account not found -- AcountDatabase find");
         return -1;
     }
 
