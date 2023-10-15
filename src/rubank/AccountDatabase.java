@@ -39,6 +39,18 @@ public class AccountDatabase {
      * @return if opening was a success.
      * @author Ayaan Qayyum
      */
+<<<<<<< Updated upstream
+=======
+    public boolean contains(Account account) {
+        return (find(account) != -1);
+    }
+
+    /**
+     *
+     * @param account
+     * @return boolean
+     */
+>>>>>>> Stashed changes
     public boolean open(Account account) {
         int accountNum = find(account);
         if (accountNum != -1) {
@@ -174,6 +186,10 @@ public class AccountDatabase {
         }
     }
 
+    /**
+     *
+     * @return boolean to show if numberOfAccounts is empty
+     */
     public boolean isEmpty() {
         if (numberOfAccounts == 0) return true;
         return false;
