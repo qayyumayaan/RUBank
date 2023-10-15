@@ -41,7 +41,6 @@ public class AccountDatabase {
      * @author Ayaan Qayyum
      */
     public boolean open(Account account) {
-        if (contains(account)) return false;
         int accountNum = find(account);
         if (accountNum != -1) {
             System.out.println("Account already exists!");
