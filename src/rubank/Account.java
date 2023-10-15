@@ -3,23 +3,28 @@ package rubank;
 public abstract class Account implements Comparable<Account> {
     protected Profile holder;
     protected double balance;
+
     public abstract double monthlyInterest();
+
     public abstract double monthlyFee();
 
     /**
-     *
      * @param other the object to be compared.
-     * @return typeComparison
      * @author Ayaan Qayyum
      */
+
     @Override
     public int compareTo(Account other) {
-        int typeComparison = this.getClass().getName().compareTo(other.getClass().getName());
+        String thisClassName = this.getClass().getSimpleName();
+        String otherClassName = other.getClass().getSimpleName();
+
+        int typeComparison = thisClassName.compareTo(otherClassName);
 
         if (typeComparison != 0) {
             return typeComparison;
         }
 
+        // Assuming the Profile class has a proper compareTo method
         return this.holder.compareTo(other.holder);
 
     }
@@ -43,7 +48,7 @@ public abstract class Account implements Comparable<Account> {
 
     /**
      * Sets account balance.
-     * @param balance
+     * @param balance for amount
      * @author Ayaan Qayyum
      */
     public void setBalance(double balance) {
