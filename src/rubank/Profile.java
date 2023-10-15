@@ -67,4 +67,19 @@ public class Profile implements Comparable<Profile>{
 
         return this.dob.compareTo(other.dob);
     }
+
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+
+        Profile profile = (Profile) obj;
+
+        return this.fname.equals(profile.fname) &&
+                this.lname.equals(profile.lname) &&
+                this.dob.equals(profile.dob);
+    }
+
+
 }
