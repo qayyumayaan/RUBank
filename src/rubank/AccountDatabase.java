@@ -114,6 +114,7 @@ public class AccountDatabase {
 
         if(index != -1) {
             accounts[index].setBalance(accounts[index].getBalance() + account.getBalance());
+            System.out.println("Account balance updated.");
         } else {
             System.out.println("Account not found.");
         }
