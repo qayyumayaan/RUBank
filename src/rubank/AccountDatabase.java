@@ -34,23 +34,21 @@ public class AccountDatabase {
     }
 
     /**
-     * Opens an account in the database.
+     * Checks if an account exists in the database.
      * @param account
-     * @return if opening was a success.
-     * @author Ayaan Qayyum
+     * @return if an account exists in the database.
+     * @author Mychal Ortega
      */
-<<<<<<< Updated upstream
-=======
     public boolean contains(Account account) {
         return (find(account) != -1);
     }
 
     /**
-     *
+     * Opens an account in the database.
      * @param account
-     * @return boolean
+     * @return if opening was a success.
+     * @author Ayaan Qayyum
      */
->>>>>>> Stashed changes
     public boolean open(Account account) {
         int accountNum = find(account);
         if (accountNum != -1) {
