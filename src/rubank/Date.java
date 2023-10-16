@@ -119,6 +119,11 @@ public class Date implements Comparable<Date>{
         testDaysInFeb_NonLeap();
         testDaysInFeb_Leap();
         testMonth_OutOfRange();
+        testYear_inFuture();
+        testDays_OutOfRange();
+        testYesterday();
+        testYear_OutOfRange();
+
     }
     private static void testDaysInFeb_NonLeap() {
         Date day = new Date("2/29/2011");
@@ -143,6 +148,36 @@ public class Date implements Comparable<Date>{
         System.out.println("**Test case #3: 13 is not a real month. ");
         testResult(day, expectedOutput, actualOutput);
     }
+    private static void testYear_inFuture() {
+        Date day = new Date("2/19/2025");
+        boolean expectedOutput = false;
+        boolean actualOutput = day.isValid();
+        System.out.println("**Test case #4: 2025 is in the future. ");
+        testResult(day, expectedOutput, actualOutput);
+    }
+
+    private static void testDays_OutOfRange() {
+        Date day = new Date("11/32/2005");
+        boolean expectedOutput = false;
+        boolean actualOutput = day.isValid();
+        System.out.println("**Test case #5: There is no month with 32 days. ");
+        testResult(day, expectedOutput, actualOutput);
+    }
+    private static void testYesterday() {
+        Date day = new Date("10/14/2023");
+        boolean expectedOutput = true;
+        boolean actualOutput = day.isValid();
+        System.out.println("**Test case #6: Yesterday's date should work. ");
+        testResult(day, expectedOutput, actualOutput);
+    }
+    private static void testYear_OutOfRange() {
+        Date day = new Date("11/32/1876");
+        boolean expectedOutput = false;
+        boolean actualOutput = day.isValid();
+        System.out.println("**Test case #7: 1876 is too far in the past. ");
+        testResult(day, expectedOutput, actualOutput);
+    }
+
 
     @Override
     public String toString() {
