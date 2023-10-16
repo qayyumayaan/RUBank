@@ -140,7 +140,7 @@ public class Date implements Comparable<Date>{
         Date day = new Date("13/31/2023");
         boolean expectedOutput = false;
         boolean actualOutput = day.isValid();
-        System.out.println("**Test case #3: February 30th isn't real. ");
+        System.out.println("**Test case #3: 13 is not a real month. ");
         testResult(day, expectedOutput, actualOutput);
     }
 
