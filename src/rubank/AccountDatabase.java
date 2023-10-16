@@ -189,7 +189,6 @@ public class AccountDatabase {
      * @return boolean to show if numberOfAccounts is empty
      */
     public boolean isEmpty() {
-        if (numberOfAccounts == 0) return true;
-        return false;
+        return numberOfAccounts == 0;
     }
 }
