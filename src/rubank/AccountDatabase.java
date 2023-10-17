@@ -128,18 +128,21 @@ public class AccountDatabase {
      * Deposits specified money into account.
      * Checks if account exists first.
      * @author Ayaan Qayyum
+     * @return if successful.
      */
-    public void deposit(Account account) {
+    public boolean deposit(Account account) {
         int index = find(account);
 
         if(index != -1) {
             accounts[index].setBalance(accounts[index].getBalance() + account.getBalance());
-            Profile profile = account.getHolder();
-            System.out.println(profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + "accountType" + ") Deposit - balance updated.");
+//            Profile profile = account.getHolder();
+//            System.out.println(profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + "accountType" + ") Deposit - balance updated.");
+            return true;
 
         } else {
-            Profile profile = account.getHolder();
-            System.out.println(profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + "accountType" + ") is not in the database.");
+//            Profile profile = account.getHolder();
+//            System.out.println(profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + "accountType" + ") is not in the database.");
+            return false;
         }
     }
 

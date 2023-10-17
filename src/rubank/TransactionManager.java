@@ -408,20 +408,36 @@ public class TransactionManager {
             switch (accountType) {
                 case ("C") -> {
                     Checking accountToDepositC = new Checking(profile, quantity);
-                    accounts.deposit(accountToDepositC);
+                    if (accounts.deposit(accountToDepositC)) {
+                        System.out.println(profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") Deposit - balance updated.");
+                    } else {
+                        System.out.println(profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") is not in the database.");
+                    }
                 }
                 case ("CC") -> {
                     CollegeChecking accountToDepositCC = new CollegeChecking(profile, quantity, campusCode);
-                    accounts.deposit(accountToDepositCC);
+                    if (accounts.deposit(accountToDepositCC)) {
+                        System.out.println(profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") Deposit - balance updated.");
+                    } else {
+                        System.out.println(profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") is not in the database.");
+                    }
                 }
                 case ("S") -> {
                     isLoyal = false;
                     Savings accountToDepositS = new Savings(profile, quantity, isLoyal);
-                    accounts.deposit(accountToDepositS);
+                    if (accounts.deposit(accountToDepositS)) {
+                        System.out.println(profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") Deposit - balance updated.");
+                    } else {
+                        System.out.println(profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") is not in the database.");
+                    }
                 }
                 case ("MM") -> {
                     MoneyMarket accountToDepositMM = new MoneyMarket(profile, quantity);
-                    accounts.deposit(accountToDepositMM);
+                    if (accounts.deposit(accountToDepositMM)) {
+                        System.out.println(profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") Deposit - balance updated.");
+                    } else {
+                        System.out.println(profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") is not in the database.");
+                    }
                 }
                 default -> System.out.println("Invalid command!");
             }
