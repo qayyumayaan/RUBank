@@ -77,6 +77,14 @@ public class Date implements Comparable<Date>{
         return this.day - other.day;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Date other = (Date) obj;
+        return year == other.year && month == other.month && day == other.day;
+    }
+
     public boolean isWithinSixMonths() {
         int within = 6;
         Calendar today = Calendar.getInstance();
