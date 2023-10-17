@@ -10,6 +10,7 @@ public abstract class Account implements Comparable<Account> {
 
     /**
      * @param other the object to be compared.
+     * @return
      * @author Ayaan Qayyum
      */
 
