@@ -78,17 +78,17 @@ public class Profile implements Comparable<Profile>{
     /**
      * Compares two profiles.
      * @param other the object to be compared.
-     * @return 
+     * @return
      * @author Ayaan Qayyum
      */
     @Override
     public int compareTo(Profile other) {
-        int lnameComparison = this.lname.compareTo(other.lname);
+        int lnameComparison = this.lname.toLowerCase().compareTo(other.lname.toLowerCase());
         if (lnameComparison != 0) {
             return lnameComparison;
         }
 
-        int fnameComparison = this.fname.compareTo(other.fname);
+        int fnameComparison = this.fname.toLowerCase().compareTo(other.fname.toLowerCase());
         if (fnameComparison != 0) {
             return fnameComparison;
         }
@@ -104,8 +104,8 @@ public class Profile implements Comparable<Profile>{
 
         Profile profile = (Profile) obj;
 
-        return this.fname.equals(profile.fname) &&
-                this.lname.equals(profile.lname) &&
+        return this.fname.toLowerCase().equals(profile.fname.toLowerCase()) &&
+                this.lname.toLowerCase().equals(profile.lname.toLowerCase()) &&
                 this.dob.equals(profile.dob);
     }
 
