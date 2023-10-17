@@ -32,13 +32,11 @@ public class TransactionManager {
         System.out.println("Transaction Manager running...");
         while (!Objects.equals(command, "Q")) {
             String input = scanner.nextLine();
-            parts = input.split("\\s+");
-            if (parts.length == 0) {
-//                System.out.println("Invalid command!");
+            if (input.trim().isEmpty()) {
                 System.out.println();
-
                 continue;
             }
+            parts = input.split("\\s+");
             command = parts[0];
             switch (command) {
                 case ("O") -> caseOpen();
