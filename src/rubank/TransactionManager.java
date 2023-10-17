@@ -304,7 +304,7 @@ public class TransactionManager {
         } else {
             MoneyMarket newAccount = new MoneyMarket(profile, quantity);
             int result = accounts.open(newAccount);
-            if (accounts.open(newAccount) == 1) {
+            if (result == 1) {
                 System.out.println(profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") opened.");
             } else if (result == -1) {
                 System.out.println(profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") is already in the database.");
