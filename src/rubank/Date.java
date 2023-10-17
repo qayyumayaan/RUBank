@@ -15,6 +15,7 @@ public class Date implements Comparable<Date>{
     public static final int QUATERCENTENNIAL = 400;
     public static final int MONTHS_IN_YEAR = 12;
     public static final int FEB_LEAP_YEAR_DAYS = 29;
+    public static final int FEBRUARY_MONTH_NUM = 2;
 
     public static final int AGE_SIXTEEN = 16;
     public static final int AGE_TWENTY_FOUR = 24;
@@ -32,6 +33,7 @@ public class Date implements Comparable<Date>{
             31, // October
             30, // November
             31  // December
+
     };
 
     public Date(String dateStr) {
@@ -40,6 +42,8 @@ public class Date implements Comparable<Date>{
         this.day = Integer.parseInt(parts[1]);
         this.year = Integer.parseInt(parts[2]);
     }
+
+
 
     private boolean isLeapYear() {
         if (year % QUADRENNIAL == 0) {
@@ -112,9 +116,14 @@ public class Date implements Comparable<Date>{
 
     public boolean isTodayOrFuture() {
         Calendar today = Calendar.getInstance();
+        int currentYear = Calendar.getInstance().get(Calendar.YEAR);
         Calendar eventDate = Calendar.getInstance();
         eventDate.set(year, month - 1, day);
         return eventDate.compareTo(today) >= 0;
+        return (eventDate.get(Calendar.YEAR) > currentYear);
+        //return eventDate.compareTo(today) >= 0;
+
+
     }
 
 
