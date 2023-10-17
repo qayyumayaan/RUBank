@@ -34,7 +34,9 @@ public class TransactionManager {
             String input = scanner.nextLine();
             parts = input.split("\\s+");
             if (parts.length == 0) {
-                System.out.println("Invalid command!");
+//                System.out.println("Invalid command!");
+                System.out.println();
+
                 continue;
             }
             command = parts[0];
@@ -465,7 +467,9 @@ public class TransactionManager {
                 System.out.println("Account Database is empty!");
                 return false;
             }
+            System.out.println("*Accounts sorted by account type and profile.");
             accounts.printSorted();
+            System.out.println("*end of list.");
         } catch (Exception e) {
             System.out.println("Error in caseDisplay: " + e.getMessage());
         }
@@ -482,7 +486,9 @@ public class TransactionManager {
                 System.out.println("Account Database is empty!");
                 return false;
             }
+            System.out.println("*list of accounts with fee and monthly interest");
             accounts.printFeesAndInterests();
+            System.out.println("*end of list.");
         } catch (Exception e) {
             System.out.println("Error in caseDisplayWithDetails: " + e.getMessage());
         }
@@ -499,7 +505,9 @@ public class TransactionManager {
                 System.out.println("Account Database is empty!");
                 return false;
             }
+            System.out.println("*list of accounts with fees and interests applied.");
             accounts.printUpdatedBalances();
+            System.out.println("*end of list.");
         } catch (Exception e) {
             System.out.println("Error in opening: " + e.getMessage());
         }
