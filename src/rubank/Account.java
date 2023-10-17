@@ -28,7 +28,11 @@ public abstract class Account implements Comparable<Account> {
         // Assuming the Profile class has a proper compareTo method
         return this.holder.compareTo(other.holder);
     }
-
+    /**
+     * @param obj checks if obj is equal
+     * @author Ayaan Qayyum
+     * @return true if it is equal
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
@@ -67,7 +71,10 @@ public abstract class Account implements Comparable<Account> {
     public void setBalance(double balance) {
         this.balance = balance;
     }
-
+    /**
+     * Turns object to string
+     * @author Ayaan Qayyum
+     */
     @Override
     public abstract String toString();
 
