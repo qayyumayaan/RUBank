@@ -120,14 +120,12 @@ public class Date implements Comparable<Date>{
         return eventDate.compareTo(today) > 0;
     }
 
+
     public boolean isTodayOrFuture() {
         Calendar today = Calendar.getInstance();
-        int currentYear = Calendar.getInstance().get(Calendar.YEAR);
         Calendar eventDate = Calendar.getInstance();
         eventDate.set(year, month - 1, day);
-        return (eventDate.get(Calendar.YEAR) > currentYear);
-        //return eventDate.compareTo(today) >= 0;
-
+        return eventDate.compareTo(today) >= 0;
 
     }
 
