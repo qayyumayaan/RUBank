@@ -42,12 +42,21 @@ public class Savings extends Account {
         if (balance >= 500) return 0;
         else return MONTHLY_FEE;
     }
-
+    /**
+     * Method determines if obj is equal to object it is being compared to
+     * @param other
+     * @return if obj is equal
+     * @author Ayaan Qayuum
+     */
     @Override
     public int compareTo(Account other) {
         return super.compareTo(other);
     }
-
+    /**
+     * Turns account to string
+     * @return string
+     * @author Ayaan Qayyum
+     */
     @Override
     public String toString() {
         return "Savings::" + holder.getFname() + " " + holder.getLname() + " " + holder.getDob() + "::Balance $" + String.format("%.2f", balance) + (isLoyal ? "::is loyal" : "");

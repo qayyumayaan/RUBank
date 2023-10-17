@@ -22,7 +22,6 @@ public class AccountDatabase {
 
     /**
      * Increases the account database capacity by 4.
-     * @return account number
      * @author Mychal Ortega
      */
     private void grow() {
@@ -36,7 +35,7 @@ public class AccountDatabase {
     /**
      * Checks if an account exists in the database.
      * @param account
-     * @return if an account exists in the database.
+     * @return true if an account exists in the database.
      * @author Mychal Ortega
      */
     public boolean contains(Account account) {
@@ -46,7 +45,7 @@ public class AccountDatabase {
     /**
      * Opens an account in the database.
      * @param account
-     * @return if opening was a success.
+     * @return 1 if opening was a success.
      * @author Ayaan Qayyum
      */
     // O  CC   John Doe 2/19/2000 599.99 0
@@ -84,7 +83,7 @@ public class AccountDatabase {
 
     /**
      * Removes a given account.
-     *
+     * @return 1 if method is successful
      * @author Ayaan Qayyum
      */
     public boolean close(Account account) {
@@ -214,8 +213,9 @@ public class AccountDatabase {
     }
 
     /**
-     *
+     * Method checks if Account Database is empty
      * @return boolean to show if numberOfAccounts is empty
+     * @author Mychal Ortega
      */
     public boolean isEmpty() {
         return numberOfAccounts == 0;

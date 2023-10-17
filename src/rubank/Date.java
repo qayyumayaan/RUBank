@@ -36,6 +36,11 @@ public class Date implements Comparable<Date>{
 
     };
 
+    /**
+     * Setter for date
+     * @param dateStr
+     * @author Ayaan Qayumm
+     */
     public Date(String dateStr) {
         String[] parts = dateStr.split("/");
         this.month = Integer.parseInt(parts[0]);
@@ -44,7 +49,11 @@ public class Date implements Comparable<Date>{
     }
 
 
-
+    /**
+     * Method determines if year is a leap year
+     * @return boolean if the year is leap year
+     * @author Mychal Ortega
+     */
     private boolean isLeapYear() {
         if (year % QUADRENNIAL == 0) {
             if (year % CENTENNIAL == 0) {
@@ -56,6 +65,11 @@ public class Date implements Comparable<Date>{
         return false;
     }
 
+    /**
+     * Method determines if the date is valid
+     * @return boolean that determines if date is valid
+     * @author Mychal Ortega
+     */
     public boolean isValid() {
         int currentYear = Calendar.getInstance().get(Calendar.YEAR);
         if (month <= 0 || month > MONTHS_IN_YEAR || day <= 0 ||
@@ -72,6 +86,12 @@ public class Date implements Comparable<Date>{
         }
     }
 
+    /**
+     *
+     * @param other the object to be compared.
+     * @return 1 if date is equal
+     * @author Ayaan Qayumm
+     */
     @Override
     public int compareTo(Date other) {
         if (this.year != other.year) {
@@ -83,6 +103,12 @@ public class Date implements Comparable<Date>{
         return this.day - other.day;
     }
 
+    /**
+     * Method determines if obj is equal to object it is being compared to
+     * @param obj
+     * @return
+     * @author Ayaan Qayumm
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
@@ -91,6 +117,11 @@ public class Date implements Comparable<Date>{
         return year == other.year && month == other.month && day == other.day;
     }
 
+    /**
+     * Method determines the date is within six months
+     * @return boolean
+     * @author Ayaan Qayumm
+     */
     public boolean isWithinSixMonths() {
         int within = 6;
         Calendar today = Calendar.getInstance();
@@ -104,6 +135,11 @@ public class Date implements Comparable<Date>{
 
     }
 
+    /**
+     * Method determines if date is older than sixteen years
+     * @return boolean
+     * @author Ayaan Qayumm
+     */
     public boolean isOlderThanSixteen() {
         Calendar today = Calendar.getInstance();
         today.add(Calendar.YEAR, -AGE_SIXTEEN);
@@ -111,6 +147,11 @@ public class Date implements Comparable<Date>{
         eventDate.set(year, month - 1, day);
         return eventDate.compareTo(today) < 0;
     }
+    /**
+     * Method determines if date is younger than twenty four years
+     * @return boolean
+     * @author Ayaan Qayumm
+     */
 
     public boolean isYoungerThanTwentyFour() {
         Calendar today = Calendar.getInstance();
@@ -120,7 +161,11 @@ public class Date implements Comparable<Date>{
         return eventDate.compareTo(today) > 0;
     }
 
-
+    /**
+     * Method determines if date is today or in the future
+     * @return boolean
+     * @author Ayaan Qayumm
+     */
     public boolean isTodayOrFuture() {
         Calendar today = Calendar.getInstance();
         Calendar eventDate = Calendar.getInstance();
@@ -141,6 +186,10 @@ public class Date implements Comparable<Date>{
         testYear_OutOfRange();
 
     }
+    /**
+     * Method is test case #1 for isValid()
+     * @author Ayaan Qayumm
+     */
     private static void testDaysInFeb_NonLeap() {
         Date day = new Date("2/29/2011");
         boolean expectedOutput = false;
@@ -148,7 +197,10 @@ public class Date implements Comparable<Date>{
         System.out.println("**Test case #1: # of days in Feb. in a non-leap year is 28");
         testResult(day, expectedOutput, actualOutput);
     }
-
+    /**
+     * Method is test case #2 for isValid()
+     * @author Mychal Ortega
+     */
     private static void testDaysInFeb_Leap() {
         Date day = new Date("2/29/2000");
         boolean expectedOutput = true;
@@ -156,7 +208,10 @@ public class Date implements Comparable<Date>{
         System.out.println("**Test case #2: # of days in Feb. in a quatercentennial leap year is 29");
         testResult(day, expectedOutput, actualOutput);
     }
-
+    /**
+     * Method is test case #3 for isValid()
+     * @author Mychal Ortega
+     */
     private static void testMonth_OutOfRange() {
         Date day = new Date("13/31/2023");
         boolean expectedOutput = false;
@@ -164,6 +219,10 @@ public class Date implements Comparable<Date>{
         System.out.println("**Test case #3: 13 is not a real month. ");
         testResult(day, expectedOutput, actualOutput);
     }
+    /**
+     * Method is test case #4 for isValid()
+     * @author Mychal Ortega
+     */
     private static void testYear_inFuture() {
         Date day = new Date("2/19/2025");
         boolean expectedOutput = false;
@@ -171,7 +230,10 @@ public class Date implements Comparable<Date>{
         System.out.println("**Test case #4: 2025 is in the future. ");
         testResult(day, expectedOutput, actualOutput);
     }
-
+    /**
+     * Method is test case #5 for isValid()
+     * @author Mychal Ortega
+     */
     private static void testDays_OutOfRange() {
         Date day = new Date("11/32/2005");
         boolean expectedOutput = false;
@@ -179,6 +241,10 @@ public class Date implements Comparable<Date>{
         System.out.println("**Test case #5: There is no month with 32 days. ");
         testResult(day, expectedOutput, actualOutput);
     }
+    /**
+     * Method is test case #6 for isValid()
+     * @author Mychal Ortega
+     */
     private static void testYesterday() {
         Date day = new Date("10/14/2023");
         boolean expectedOutput = true;
@@ -186,6 +252,10 @@ public class Date implements Comparable<Date>{
         System.out.println("**Test case #6: Yesterday's date should work. ");
         testResult(day, expectedOutput, actualOutput);
     }
+    /**
+     * Method is test case #7 for isValid()
+     * @author Mychal Ortega
+     */
     private static void testYear_OutOfRange() {
         Date day = new Date("11/32/1876");
         boolean expectedOutput = false;
@@ -194,13 +264,20 @@ public class Date implements Comparable<Date>{
         testResult(day, expectedOutput, actualOutput);
     }
 
-
+    /**
+     * Method turns date to string
+     * @return date in string
+     * @author Mychal Ortega
+     */
     @Override
     public String toString() {
         return month + "/" + day + "/" + year;
     }
 
-
+    /**
+     * Method is used to print out test case results
+     * @author Mychal Ortega
+     */
     private static void testResult(Date day, boolean expectedOutput, boolean actualOutput) {
         System.out.println("Testing Date: " + day);
         System.out.println("Expected Output: " + expectedOutput);
@@ -208,14 +285,28 @@ public class Date implements Comparable<Date>{
         System.out.println(expectedOutput == actualOutput ? "Test Passed!" : "Test Failed!");
     }
 
+    /**
+     * Method is a getter for year
+     * @return int year
+     * @author Mychal Ortega
+     */
     public int getYear() {
         return year;
     }
-
-    public int getMonth() {
+    /**
+     * Method is a getter for month
+     * @return int month
+     * @author Ayaan Qayumm
+     */
+    public int getMonth(){
         return month;
     }
 
+    /**
+     * Method is a getter for day
+     * @return int day
+     * @author Ayaan Qayumm
+     */
     public int getDay() {
         return day;
     }

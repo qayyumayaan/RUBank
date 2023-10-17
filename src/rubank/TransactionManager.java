@@ -192,6 +192,7 @@ public class TransactionManager {
      * Priming for another check later in the command process.
      * @param dobRaw dob as entered from command line.
      * @return if date is formatted correctly.
+     * @author Mychal Ortega
      */
     private boolean dateChecker(String dobRaw) {
         int count = 0;

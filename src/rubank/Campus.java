@@ -21,7 +21,7 @@ public enum Campus {
     /**
      * Returns the Campus code
      * @author Ayaan Qayyum
-     * @return
+     * @return the integer code
      */
     public int getCode() {
         return code;
@@ -42,6 +42,11 @@ public enum Campus {
         return null;
     }
 
+    /**
+     * Method turns campus code to string
+     * @return string of campus
+     * @author Ayaan Qayyum
+     */
     public String toString() {
         if (code == NEW_BRUNSWICK.getCode()) return "NEW_BRUNSWICK";
         if (code == NEWARK.getCode()) return "NEWARK";

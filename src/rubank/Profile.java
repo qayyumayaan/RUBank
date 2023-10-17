@@ -78,7 +78,7 @@ public class Profile implements Comparable<Profile>{
     /**
      * Compares two profiles.
      * @param other the object to be compared.
-     * @return
+     * @return if other is the same
      * @author Ayaan Qayyum
      */
     @Override
@@ -96,7 +96,12 @@ public class Profile implements Comparable<Profile>{
         return this.dob.compareTo(other.dob);
     }
 
-
+    /**
+     * Method determines if obj is equal to object it is being compared to
+     * @param obj
+     * @return if obj is equal
+     * @author Ayaan Qayuum
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
