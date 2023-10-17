@@ -257,9 +257,10 @@ public class TransactionManager {
      */
     private void caseOpenChecking() {
         Checking newAccount = new Checking(profile, quantity);
-        if (accounts.open(newAccount)) {
+        int result = accounts.open(newAccount);
+        if (result == 1) {
             System.out.println(profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") opened.");
-        } else {
+        } else if (result == -1) {
             System.out.println(profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") is already in the database.");
         }
     }
@@ -270,9 +271,10 @@ public class TransactionManager {
      */
     private void caseOpenCollegeChecking() {
         CollegeChecking newAccount = new CollegeChecking(profile, quantity);
-        if (accounts.open(newAccount)) {
+        int result = accounts.open(newAccount);
+        if (result == 1) {
             System.out.println(profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") opened.");
-        } else {
+        } else if (result == -1) {
             System.out.println(profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") is already in the database.");
         }
     }
@@ -283,9 +285,10 @@ public class TransactionManager {
      */
     private void caseOpenSavings() {
         Savings newAccount = new Savings(profile, quantity, isLoyal);
-        if (accounts.open(newAccount)) {
+        int result = accounts.open(newAccount);
+        if (result == 1) {
             System.out.println(profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") opened.");
-        } else {
+        } else if (result == -1) {
             System.out.println(profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") is already in the database.");
         }
     }
@@ -299,9 +302,10 @@ public class TransactionManager {
             System.out.println("Minimum of $2000 to open a Money Market account.");
         } else {
             MoneyMarket newAccount = new MoneyMarket(profile, quantity);
-            if (accounts.open(newAccount)) {
-                System.out.println( profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") opened.");
-            } else {
+            int result = accounts.open(newAccount);
+            if (accounts.open(newAccount) == 1) {
+                System.out.println(profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") opened.");
+            } else if (result == -1) {
                 System.out.println(profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") is already in the database.");
             }
         }
