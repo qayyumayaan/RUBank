@@ -328,7 +328,7 @@ public class TransactionManager {
                 case ("MM") -> caseCloseMoneyMarketSavings();
                 default -> System.out.println("Invalid command!");
             }
-            System.out.println( profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") has been closed.");
+//            System.out.println( profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") has been closed.");
         } catch (Exception e) {
             System.out.println("Error in caseClose: " + e.getMessage());
         }
@@ -343,6 +343,8 @@ public class TransactionManager {
         Checking accountToClose = new Checking(profile, quantity);
         if (accounts.close(accountToClose)) {
             System.out.println( profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") has been closed.");
+        } else {
+            System.out.println( profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") is not in the database.");
         }
     }
 
@@ -354,6 +356,8 @@ public class TransactionManager {
         CollegeChecking accountToClose = new CollegeChecking(profile, quantity);
         if (accounts.close(accountToClose)) {
             System.out.println( profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") has been closed.");
+        } else {
+            System.out.println( profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") is not in the database.");
         }
     }
 
@@ -365,6 +369,8 @@ public class TransactionManager {
         Savings accountToClose = new Savings(profile, quantity, false);
         if (accounts.close(accountToClose)) {
             System.out.println( profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") has been closed.");
+        } else {
+            System.out.println( profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") is not in the database.");
         }
     }
 
@@ -376,6 +382,8 @@ public class TransactionManager {
         MoneyMarket accountToClose = new MoneyMarket(profile, quantity);
         if (accounts.close(accountToClose)) {
             System.out.println( profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") has been closed.");
+        } else {
+            System.out.println( profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") is not in the database.");
         }
     }
 

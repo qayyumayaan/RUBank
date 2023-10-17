@@ -82,10 +82,14 @@ public class AccountDatabase {
      */
     public boolean close(Account account) {
         int location = find(account);
+        if (location == -1) {
+            return false; // Account not found
+        }
         for (int i = location; i < numberOfAccounts - 1; i++) {
             accounts[i] = accounts[i + 1];
         }
-        accounts[accounts.length - 1] = null;
+        accounts[numberOfAccounts - 1] = null;
+        numberOfAccounts--;
         return true;
     }
 
@@ -126,7 +130,8 @@ public class AccountDatabase {
             accounts[index].setBalance(accounts[index].getBalance() + account.getBalance());
             System.out.println("Account balance updated.");
         } else {
-            System.out.println("Account not found.");
+            Profile profile = account.getHolder();
+            System.out.println(profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + "accountType" + ") is not in the database.");
         }
     }
 
@@ -163,7 +168,7 @@ public class AccountDatabase {
             double fee = accounts[i].monthlyFee();
 
             System.out.printf("%s: Interest: %.2f, Fee: %.2f%n",
-                    accounts[i].holder, interest, fee);
+                    accounts[i].toString(), interest, fee);
         }
     }
 
@@ -180,7 +185,7 @@ public class AccountDatabase {
             accounts[i].balance = updatedBalance;
 
             System.out.printf("%s: Updated Balance: %.2f%n",
-                    accounts[i].holder, updatedBalance);
+                    accounts[i].toString(), updatedBalance);
         }
     }
 
