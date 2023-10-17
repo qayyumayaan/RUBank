@@ -104,9 +104,11 @@ public class Profile implements Comparable<Profile>{
 
         Profile profile = (Profile) obj;
 
-        return this.fname.toLowerCase().equals(profile.fname.toLowerCase()) &&
-                this.lname.toLowerCase().equals(profile.lname.toLowerCase()) &&
-                this.dob.equals(profile.dob);
+        boolean fnameCheck = this.fname.toLowerCase().equals(profile.fname.toLowerCase());
+        boolean lnameCheck = this.lname.toLowerCase().equals(profile.lname.toLowerCase());
+        boolean dobCheck = this.dob.equals(profile.dob);
+
+        return fnameCheck && lnameCheck && dobCheck;
     }
 
 
