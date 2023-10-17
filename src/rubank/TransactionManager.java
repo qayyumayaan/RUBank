@@ -89,6 +89,7 @@ public class TransactionManager {
             if (command.equals("C")) return true; // break and do not check parts[5], parts[6]
 
             if (!quantityProcessor()) return false; // parts[5]
+            if (command.equals("D") || command.equals("W")) return true; // break and do not check specifics for D and W
             switch (accountType) {
                 case "CC" -> {  // parts[6]
                     if (!dob.isYoungerThanTwentyFour()) {
