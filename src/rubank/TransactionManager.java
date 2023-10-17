@@ -345,6 +345,7 @@ public class TransactionManager {
      * @author Ayaan Qayyum
      */
     private void caseCloseChecking() {
+        quantity = 0.0;
         Checking accountToClose = new Checking(profile, quantity);
         if (accounts.close(accountToClose)) {
             System.out.println( profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") has been closed.");
@@ -358,6 +359,7 @@ public class TransactionManager {
      * @author Ayaan Qayyum
      */
     private void caseCloseCollegeChecking() {
+        quantity = 0.0;
         CollegeChecking accountToClose = new CollegeChecking(profile, quantity, campusCode);
         if (accounts.close(accountToClose)) {
             System.out.println( profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") has been closed.");
@@ -371,6 +373,7 @@ public class TransactionManager {
      * @author Ayaan Qayyum
      */
     private void caseCloseSavings() {
+        quantity = 0.0;
         Savings accountToClose = new Savings(profile, quantity, false);
         if (accounts.close(accountToClose)) {
             System.out.println( profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") has been closed.");
@@ -384,6 +387,7 @@ public class TransactionManager {
      * @author Ayaan Qayyum
      */
     private void caseCloseMoneyMarketSavings() {
+        quantity = 0.0;
         MoneyMarket accountToClose = new MoneyMarket(profile, quantity);
         if (accounts.close(accountToClose)) {
             System.out.println( profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") has been closed.");
