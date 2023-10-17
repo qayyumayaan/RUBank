@@ -196,4 +196,65 @@ public class AccountDatabase {
     public boolean isEmpty() {
         return numberOfAccounts == 0;
     }
-}
+
+
+    /**
+     * Second test method for test cases of method close()
+     * @return false if account in database is not found and not able to close
+     * @author Mychal Ortega
+     */
+    public boolean testCloseAccount_AccountNotFound() {
+        AccountDatabase accountDatabase = new AccountDatabase();
+        Date bDay = new Date("11/18/2001");
+        Date bDay2 = new Date("12/18/2004");
+        Profile acct1 = new Profile("Joe", "Smith", bDay);
+        Profile acct2 = new Profile("John", "Doe", bDay2);
+        Account account1 = new Checking(acct1, 1000.00);
+        Account account2 = new Savings(acct2, 2000.0, true);
+        //Open the accounts to database before testing the close method
+        accountDatabase.open(account1);
+        //Try to close an account that is not in the database
+        boolean result = accountDatabase.close(account2);
+
+        if (result) {
+            return true; // Test failed
+        } else {
+            return false; // Test passed
+        }
+    }
+    /**
+     * Test method for test cases of method close()
+     * @return true if account in database is closed
+     * @author Mychal Ortega
+     */
+    public boolean CloseAccount_Success() {
+            AccountDatabase accountDatabase = new AccountDatabase();
+            Date bDay = new Date("11/18/2001");
+            Profile acct1 = new Profile("Joe", "Smith", bDay);
+            Account account1 = new Checking(acct1, 1000.0);
+            //Open the account before testing the close method
+            accountDatabase.open(account1);
+            //Try to close the account
+            boolean result = accountDatabase.close(account1);
+
+            //Check if the account was closed
+            if (result && !accountDatabase.contains(account1)) {
+                return true; // Test passed
+            } else {
+                return false; // Test failed
+            }
+        }
+
+
+        public static void main(String[] args) {
+           // AccountDatabaseTest test = new AccountDatabaseTest();
+
+            // Run and print the results of the test cases
+            AccountDatabase test = new AccountDatabase();
+            System.out.println("Test Close() (Account not in database): " + test.testCloseAccount_AccountNotFound());
+            System.out.println("Test Close() (Account in database): " + test.CloseAccount_Success());
+
+        }
+    }
+
+
