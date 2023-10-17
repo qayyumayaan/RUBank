@@ -83,7 +83,7 @@ public class MoneyMarket extends Account{
 
     @Override
     public String toString() {
-        return "Money Market::Savings::" + holder.getFname() + " " + holder.getLname() + " " + holder.getDob() + "::Balance $" + String.format("%.2f", balance) + (isLoyal ? "::is loyal" : "") + "::withdrawal: " + withdrawal;
+        return "Money Market::Savings::" + holder.getFname() + " " + holder.getLname() + " " + holder.getDob() + "::Balance $" + String.format("%,.2f", balance)  + (isLoyal ? "::is loyal" : "") + "::withdrawal: " + withdrawal;
     }
 
 }

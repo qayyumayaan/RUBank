@@ -165,10 +165,7 @@ public class AccountDatabase {
             String balanceFormatted = String.format("%,.2f", balance);
             Profile holder = accounts[i].getHolder();
 
-            System.out.printf("College Checking::%s %s::Balance $%s::NEWARK%n",
-                    holder.getFname() + " " + holder.getLname(),
-                    holder.getDob().toString(),
-                    balanceFormatted);
+            System.out.println(accounts[i].toString());
         }
     }
 
@@ -179,15 +176,7 @@ public class AccountDatabase {
      */
     public void printFeesAndInterests() {
         for (int i = 0; i < numberOfAccounts; i++) {
-            double interest = accounts[i].monthlyInterest();
-            double fee = accounts[i].monthlyFee();
-            String balanceFormatted = String.format("%,.2f", accounts[i].getBalance());
-            Profile holder = accounts[i].getHolder();
-
-            System.out.printf("Checking::%s %s::Balance $%s::fee $%.2f::monthly interest $%.2f%n",
-                    holder.getFname() + " " + holder.getLname(),
-                    holder.getDob().toString(),
-                    balanceFormatted, fee, interest);
+            System.out.println(accounts[i].toString());
         }
     }
 
@@ -202,13 +191,11 @@ public class AccountDatabase {
             double updatedBalance = accounts[i].getBalance() + interest - fee;
 
             accounts[i].setBalance(updatedBalance);
-            String balanceFormatted = String.format("%,.2f", updatedBalance);
-            Profile holder = accounts[i].getHolder();
+//            String balanceFormatted = String.format("%,.2f", updatedBalance);
+//            Profile holder = accounts[i].getHolder();
 
-            System.out.printf("Checking::%s %s::Balance $%s%n",
-                    holder.getFname() + " " + holder.getLname(),
-                    holder.getDob().toString(),
-                    balanceFormatted);
+            System.out.printf("%s: Interest: %.2f, Fee: %.2f%n",
+                    accounts[i].toString(), interest, fee);
         }
     }
 

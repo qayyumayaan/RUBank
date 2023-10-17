@@ -59,6 +59,6 @@ public class Savings extends Account {
      */
     @Override
     public String toString() {
-        return "Savings::" + holder.getFname() + " " + holder.getLname() + " " + holder.getDob() + "::Balance $" + String.format("%.2f", balance) + (isLoyal ? "::is loyal" : "");
+        return "Savings::" + holder.getFname() + " " + holder.getLname() + " " + holder.getDob() + "::Balance $" + String.format("%,.2f", balance)  + (isLoyal ? "::is loyal" : "");
     }
 }

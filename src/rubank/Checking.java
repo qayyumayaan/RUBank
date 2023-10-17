@@ -54,6 +54,6 @@ public class Checking extends Account {
      */
     @Override
     public String toString() {
-        return "Checking::" + holder.getFname() + " " + holder.getLname() + " " + holder.getDob() + "::Balance $" + String.format("%.2f", balance);
+        return "Checking::" + holder.getFname() + " " + holder.getLname() + " " + holder.getDob() + "::Balance $" + String.format("%,.2f", balance) ;
     }
 }
