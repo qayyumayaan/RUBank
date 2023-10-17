@@ -148,6 +148,7 @@ public class AccountDatabase {
      * @author Ayaan Qayyum
      */
     public void printSorted() {
+        // Sorting logic remains the same
         for (int i = 1; i < numberOfAccounts; i++) {
             Account key = accounts[i];
             int j = i - 1;
@@ -159,8 +160,16 @@ public class AccountDatabase {
             accounts[j + 1] = key;
         }
 
+        // Updated printing logic
         for (int i = 0; i < numberOfAccounts; i++) {
-            System.out.println(accounts[i].toString());
+            double balance = accounts[i].getBalance();
+            String balanceFormatted = String.format("%,.2f", balance);
+            Profile holder = accounts[i].getHolder();
+
+            System.out.printf("College Checking::%s %s::Balance $%s::NEWARK%n",
+                    holder.getFname() + " " + holder.getLname(),
+                    holder.getDob().toString(),
+                    balanceFormatted);
         }
     }
 
@@ -173,9 +182,13 @@ public class AccountDatabase {
         for (int i = 0; i < numberOfAccounts; i++) {
             double interest = accounts[i].monthlyInterest();
             double fee = accounts[i].monthlyFee();
+            String balanceFormatted = String.format("%,.2f", accounts[i].getBalance());
+            Profile holder = accounts[i].getHolder();
 
-            System.out.printf("%s: Interest: %.2f, Fee: %.2f%n",
-                    accounts[i].toString(), interest, fee);
+            System.out.printf("Checking::%s %s::Balance $%s::fee $%.2f::monthly interest $%.2f%n",
+                    holder.getFname() + " " + holder.getLname(),
+                    holder.getDob().toString(),
+                    balanceFormatted, fee, interest);
         }
     }
 
@@ -187,12 +200,16 @@ public class AccountDatabase {
         for (int i = 0; i < numberOfAccounts; i++) {
             double interest = accounts[i].monthlyInterest();
             double fee = accounts[i].monthlyFee();
-            double updatedBalance = accounts[i].balance + interest - fee;
+            double updatedBalance = accounts[i].getBalance() + interest - fee;
 
-            accounts[i].balance = updatedBalance;
+            accounts[i].setBalance(updatedBalance);
+            String balanceFormatted = String.format("%,.2f", updatedBalance);
+            Profile holder = accounts[i].getHolder();
 
-            System.out.printf("%s: Updated Balance: %.2f%n",
-                    accounts[i].toString(), updatedBalance);
+            System.out.printf("Checking::%s %s::Balance $%s%n",
+                    holder.getFname() + " " + holder.getLname(),
+                    holder.getDob().toString(),
+                    balanceFormatted);
         }
     }
 
