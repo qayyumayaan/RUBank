@@ -134,7 +134,9 @@ public class AccountDatabase {
 
         if(index != -1) {
             accounts[index].setBalance(accounts[index].getBalance() + account.getBalance());
-            System.out.println("Account balance updated.");
+            Profile profile = account.getHolder();
+            System.out.println(profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + "accountType" + ") Deposit - balance updated.");
+
         } else {
             Profile profile = account.getHolder();
             System.out.println(profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + "accountType" + ") is not in the database.");
