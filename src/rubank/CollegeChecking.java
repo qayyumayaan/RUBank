@@ -7,8 +7,9 @@ public class CollegeChecking extends Checking {
 
     private Campus campus;
 
-    public CollegeChecking(Profile profile, Double quantity) {
+    public CollegeChecking(Profile profile, Double quantity, Campus campusCode) {
         super(profile, quantity);
+        this.campus = campusCode;
     }
 
     /**
@@ -32,7 +33,7 @@ public class CollegeChecking extends Checking {
 
     @Override
     public String toString() {
-        return "College Checking::" + holder.getFname() + " " + holder.getLname() + " " + holder.getDob() + "::Balance $" + String.format("%.2f", balance) + "::" + campus;
+        return "College Checking::" + holder.getFname() + " " + holder.getLname() + " " + holder.getDob() + "::Balance $" + String.format("%.2f", balance) + "::" + campus.toString();
     }
 
 

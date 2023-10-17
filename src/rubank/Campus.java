@@ -42,4 +42,11 @@ public enum Campus {
         return null;
     }
 
+    public String toString() {
+        if (code == NEW_BRUNSWICK.getCode()) return "NEW_BRUNSWICK";
+        if (code == NEWARK.getCode()) return "NEWARK";
+        if (code == CAMDEN.getCode()) return "CAMDEN";
+        return null;
+    }
+
 }

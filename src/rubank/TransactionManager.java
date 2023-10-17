@@ -155,6 +155,7 @@ public class TransactionManager {
             int campus;
             try {
                 campus = Integer.parseInt(parts[6]);
+//                System.out.println(campus);
                 if (campus != 0 && campus != 1 && campus != 2) {
                     System.out.println("Invalid campus code.");
                     return false;
@@ -270,7 +271,7 @@ public class TransactionManager {
      * @author Ayaan Qayyum
      */
     private void caseOpenCollegeChecking() {
-        CollegeChecking newAccount = new CollegeChecking(profile, quantity);
+        CollegeChecking newAccount = new CollegeChecking(profile, quantity, campusCode);
         int result = accounts.open(newAccount);
         if (result == 1) {
             System.out.println(profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") opened.");
@@ -356,7 +357,7 @@ public class TransactionManager {
      * @author Ayaan Qayyum
      */
     private void caseCloseCollegeChecking() {
-        CollegeChecking accountToClose = new CollegeChecking(profile, quantity);
+        CollegeChecking accountToClose = new CollegeChecking(profile, quantity, campusCode);
         if (accounts.close(accountToClose)) {
             System.out.println( profile.getFname() + " " + profile.getLname() + " " + profile.getDob() + "(" + accountType + ") has been closed.");
         } else {
@@ -405,7 +406,7 @@ public class TransactionManager {
                     accounts.deposit(accountToDepositC);
                 }
                 case ("CC") -> {
-                    CollegeChecking accountToDepositCC = new CollegeChecking(profile, quantity);
+                    CollegeChecking accountToDepositCC = new CollegeChecking(profile, quantity, campusCode);
                     accounts.deposit(accountToDepositCC);
                 }
                 case ("S") -> {
@@ -439,7 +440,7 @@ public class TransactionManager {
                     processWithdraw(accountToWithdrawC);
                 }
                 case ("CC") -> {
-                    CollegeChecking accountToWithdrawCC = new CollegeChecking(profile, quantity);
+                    CollegeChecking accountToWithdrawCC = new CollegeChecking(profile, quantity, campusCode);
                     processWithdraw(accountToWithdrawCC);
                 }
                 case ("S") -> {
