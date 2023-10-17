@@ -49,20 +49,27 @@ public class AccountDatabase {
      * @return if opening was a success.
      * @author Ayaan Qayyum
      */
-    public boolean open(Account account) {
+    // O  CC   John Doe 2/19/2000 599.99 0
+    // O  C    John Doe 2/19/2000 599.99
+    public int open(Account account) {
         int accountNum = find(account);
-        if (accountNum != -1) {
-            return false;
+        if (accountNum != -1) { // check if account exists
+            return -1;
         }
 
         // Check for special condition: College Checking and Checking
         for (Account existingAccount : accounts) {
             if (existingAccount != null) {
-                if (existingAccount.holder.equals(account.holder) &&
-                        ((existingAccount instanceof CollegeChecking && account instanceof Checking) ||
-                                (existingAccount instanceof Checking && account instanceof CollegeChecking))) {
-                    System.out.println(account.getHolder().getFname() + " " + account.getHolder().getLname() + " " + account.getHolder().getDob() + "(" + ") is already in database.");
-                    return false; // Person already has one of these account types
+                Profile existing = existingAccount.getHolder();
+                if (existing.equals(account.holder)) {
+                    if ((existingAccount instanceof CollegeChecking && account instanceof Checking)) {
+                        System.out.println(account.getHolder().getFname() + " " + account.getHolder().getLname() + " " + account.getHolder().getDob() + "(CC) is already in database.");
+                        return 0; // Person already has one of these account types
+                    } else if (existingAccount instanceof Checking && account instanceof CollegeChecking) {
+                        System.out.println(account.getHolder().getFname() + " " + account.getHolder().getLname() + " " + account.getHolder().getDob() + "(C) is already in database.");
+                        return 0; // Person already has one of these account types
+                    }
+
                 }
             }
         }
@@ -72,7 +79,7 @@ public class AccountDatabase {
         accounts[numberOfAccounts] = account;
         numberOfAccounts++;
 
-        return true;
+        return 1;
     }
 
     /**
