@@ -479,7 +479,7 @@ public class TransactionManager {
                 System.out.println("Account Database is empty!");
                 return false;
             }
-            System.out.println("*Accounts sorted by account type and profile.");
+            System.out.println("\n" + "*Accounts sorted by account type and profile.");
             accounts.printSorted();
             System.out.println("*end of list.");
         } catch (Exception e) {
@@ -498,7 +498,7 @@ public class TransactionManager {
                 System.out.println("Account Database is empty!");
                 return false;
             }
-            System.out.println("*list of accounts with fee and monthly interest");
+            System.out.println("\n" +"*list of accounts with fee and monthly interest");
             accounts.printFeesAndInterests();
             System.out.println("*end of list.");
         } catch (Exception e) {
@@ -517,7 +517,7 @@ public class TransactionManager {
                 System.out.println("Account Database is empty!");
                 return false;
             }
-            System.out.println("*list of accounts with fees and interests applied.");
+            System.out.println("\n" +"*list of accounts with fees and interests applied.");
             accounts.printUpdatedBalances();
             System.out.println("*end of list.");
         } catch (Exception e) {
